@@ -1,0 +1,15 @@
+.square{
+    width: 30%;
+    height: 30%;
+    background-color: black;
+    position: absolute;
+    left: 25%;
+    box-shadow: 10px 10px 5px black;
+    border-radius: 10%;
+    top: 20%;
+}
+
+.input{
+    position: relative;
+    left: 40%;
+}
