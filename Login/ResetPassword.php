@@ -19,7 +19,7 @@
 <?php
 
 if (isset($_POST['MailF'])){
-    $ip= '127.0.0.1';
+            $ip= '127.0.0.1';
             $username='root';
             $password='';
             $database='SoundVibe';
