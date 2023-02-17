@@ -18,6 +18,38 @@ background-color:  rgb(56, 56, 56);
     position: absolute;
     left: 10%;
 }
+.Image2{
+  position: relative;
+  float: left;
+  left: 44%;
+  width: 100px;
+  height: 100px;
+}
+
+.Image3{
+  position: relative;
+  left: 44%;
+  width: 100px;
+  height: 100px;
+  transform: rotate(180deg);
+
+}
+.Image4{
+	position: relative;
+	left: 44%;
+	width: 100px;
+	height: 100px;
+	top: 100%;
+  }
+.Image5{
+	position: relative;
+	left: 44%;
+	width: 40%;
+	height: 80%;
+	transform: rotate(180deg);
+  }
+  
+
 .logout{
     position: absolute;
     width: 100%;
@@ -46,11 +78,27 @@ a{
     padding-top: 20px;
 }
 .square{
-    position: absolute;
-    bottom: 0px;
-    height: 10%;
-    width: 100%;
+    
     background-color: rgba(66,66,66);
     left: 0px;
+	height: 10%;
+    width: 100%;
+    position: fixed;
+	bottom: 0px;
+    z-index: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
 
+.control{
+	/*/display: flex;
+    align-items: center;*/
+	float:left;
+
+	
+}
+
+.Playlist{
+	color: aliceblue;
 }
