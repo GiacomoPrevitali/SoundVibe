@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +31,7 @@
                 </form>
 		
     <?php
+    session_start();
         if (isset($_POST['Mail'])){
             $ip= '127.0.0.1';
             $username='root';
@@ -39,14 +42,19 @@
             if ($connection->connect_error) {
                 die('C\'è stato un errore: ' . $connection->connect_error);
             }
-            $sql ='SELECT Nome FROM users WHERE Pass="'.md5($_POST['Password']).'" AND mail="'.$_POST['Mail'].'" ';
+            $sql ='SELECT Nome  FROM users WHERE Pass="'.md5($_POST['Password']).'" AND mail="'.$_POST['Mail'].'" ';
             $result =$connection->query($sql);
 
             if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
                 
+<<<<<<< Updated upstream
                   header("Location: ../Test/index.php");
                   
+=======
+                  header("Location: ../Home/index.php");
+                  $_SESSION['Nome'] = $row['Nome'];
+>>>>>>> Stashed changes
                 }
               }else{
                 echo '<div class="alert alert-danger my-4">Credenziali sbagliate</div>';

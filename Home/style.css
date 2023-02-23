@@ -1,3 +1,33 @@
+<<<<<<< Updated upstream
 body{
     font-family: 'Montserrat', sans-serif;
+=======
+.accountF{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.accountImg{
+    width: 20%;
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    display: inline-block;
+}
+
+.name{
+    color: #CD5C5C;
+    padding-left: 20px;
+    font: italic 10px "Fira Sans", serif;
+    
+}
+.left{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    background-color: blueviolet;
+>>>>>>> Stashed changes
 }
