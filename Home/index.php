@@ -1,46 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css" />
-        <script type="text/javascript" src="script.js"></script>
-    </head>
-    <body>
-    <table class="Playlist">
-    <tr><td>cc</td><td>cc</td><td>cc</td></tr>
-    <tr><td>cc</td><td>cc</td><td>cc</td></tr>
-    <tr><td>cc</td><td>cc</td><td>cc</td></tr>
-    </table>
-    <div class="sidebar">
-        <a href="account.php">
-            <div class="element">
-                <img src="./Foto/Account_Icon.png"  class="Image">
-                <p class="Name"> Nome Account</p>
-            </div>
-        </a>
-        <br>
-        <a href="libreria.php">
-        <div class="element">
-                <img src="./Foto/Library_Icon.png"  class="Image1">
-                <p class="Name"> Libreria</p>
-        </div>
-        </a>
-                <div class="logout">
-                    <img src="./Foto/Exit_Icon.png"  class="Image1">
-                    <p class="Name"> Logout</p>
-                </div>
-        </div>
-    </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   
-        <div class="square">
-            <div class="control">
-                <img src="./Foto/SkipA.png"  class="Image2">
-                <img id="PlayBreak" src="./Foto/Play_Icon.png"  class="Image4" onclick="changeImage(this)">
-                <img src="./Foto/SkipA.png"  class="Image3">
-            </div>
-        </div>
-    
-    </body>
+    <title>SoundVibe</title>
+</head>
+<body>
+ <div class="sidebar">
+    <div class="logo">
+        <a href="#">
+        <img src="logo.png" alt="logo"/>
+        </a>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-plus"></span>
+                    <span> Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fa fa-search"></span>
+                    <span> Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-book"></span>
+                    <span> Your Library</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                    <span> Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fa fa-search"></span>
+                    <span> Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-book"></span>
+                    <span> Your Library</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+ </div>
+    <script>
+      src="https://kit.fontawesome.com/23cecef777.js"
+      crossorigin="anonymous"
+    </script>
+</body>
 </html>

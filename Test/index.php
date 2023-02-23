@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <head>
-<title>Home</title>
+<title>SoundVibe</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" />
         <script type="text/javascript" src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
 </head> 
 <body>
 <body>
@@ -12,9 +14,9 @@
     <div class="sidebar">
       <div class="logo">
         <a href="#">
-          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/soundvibe_Logo_CMYK_Green.png" alt="Logo" />
         </a>
-      </div>
+    </div>
 
       <div class="navigation">
         <ul>
@@ -80,26 +82,20 @@
 
         <div class="navbar">
           <ul>
-            <li>
-              <a href="#">Premium</a>
-            </li>
-            <li>
-              <a href="#">Support</a>
-            </li>
-            <li>
-              <a href="#">Download</a>
-            </li>
+           
             <li class="divider">|</li>
             <li>
-              <a href="#">Sign Up</a>
+              <a href="./../Registrazione/index.php">Sign Up</a>
             </li>
           </ul>
+          <a href="./../Login/index.php">
           <button type="button">Log In</button>
+          </a>
         </div>
       </div>
 
-      <div class="spotify-playlists">
-        <h2>Spotify Playlists</h2>
+      <div class="soundvibe-playlists">
+        <h2>soundvibe Playlists</h2>
 
         <div class="list">
           <div class="item">
@@ -176,7 +172,7 @@
         </div>
       </div>
 
-      <div class="spotify-playlists">
+      <div class="soundvibe-playlists">
         <h2>Focus</h2>
         <div class="list">
           <div class="item">
@@ -253,81 +249,7 @@
         </div>
       </div>
 
-      <div class="spotify-playlists">
-        <h2>Mood</h2>
-        <div class="list">
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Mood Booster</h4>
-            <p>Get happy with today's dose of feel-good...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Feelin' Good</h4>
-            <p>Feel good with this positively timeless...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Dark & Stormy</h4>
-            <p>Beautifully dark, dramatic tracks.</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Feel Good Piano</h4>
-            <p>Happy vibes for an upbeat morning.</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Feelin' Myself</h4>
-            <p>The hip-hop playlist that's a whole mood...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Chill Tracks</h4>
-            <p>Softer kinda dance</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Feel-Good Indie Rock</h4>
-            <p>The best indie rock vibes - classic and...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>idk.</h4>
-            <p>idk.</p>
-          </div>
-        </div>
+     
 
         <hr>
       </div>
