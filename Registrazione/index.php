@@ -35,7 +35,7 @@
                     <input type="text"  name="Codice_Fiscale"   placeholder="Codice Fiscale"    required    class="Input"><br>
                     <input type="date"  name="Data_Nascita"     placeholder="Data di nascita "  required    class="Input"><br>
                     <input type="text"  name="Mail"             placeholder="Mail"              required    class="Input"><br>
-                    <input type="password"  name="Password"         placeholder="Password"      required    class="Input"><br>
+                    <input type="password"  name="Password"      placeholder="Password"      required    class="Input"><br>
                 
                 <button type="submit" class="r">REGISTRATI</button>
             </form>

@@ -10,7 +10,7 @@
 </head> 
 <body>
 <body>
-
+<!-- modifica, elimina, scarica pdf -->
     <div class="sidebar">
       <div class="logo">
         <a href="#">
@@ -61,16 +61,7 @@
         </ul>
       </div>
 
-      <div class="policies">
-        <ul>
-          <li>
-            <a href="#">Cookies</a>
-          </li>
-          <li>
-            <a href="#">Privacy</a>
-          </li>
-        </ul>
-      </div>
+     
     </div>
 
     <div class="main-container">
@@ -80,22 +71,24 @@
           <button type="button" class="fa fas fa-chevron-right"></button>
         </div>
 
-        <div class="navbar">
+      <div class="navbar">
           <ul>
-           
-            <li class="divider">|</li>
             <li>
-              <a href="./../Registrazione/index.php">Sign Up</a>
+              <a href="./../Registrazione/index.php">
+                <button type="button" class="button1">Sign Up</button>
+              </a>
+            </li>
+            <li>
+              <a href="./../Login/index.php">
+                <button type="button">Log In</button>
+              </a>
             </li>
           </ul>
-          <a href="./../Login/index.php">
-          <button type="button">Log In</button>
-          </a>
         </div>
       </div>
 
       <div class="soundvibe-playlists">
-        <h2>soundvibe Playlists</h2>
+        <h2>SoundVibe Playlists</h2>
 
         <div class="list">
           <div class="item">
