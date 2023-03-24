@@ -85,18 +85,18 @@
       </div>
     
         <div class="container">
-            <div class="musicGroup"></div>
-            <div class="musicGroup"></div>
-            <div class="musicGroup"></div>
-            <div class="musicGroup"></div>
-            <div class="musicGroup"></div>
+            <div class="musicGroup red"><h2>RAP</h2></div>
+            <div class="musicGroup orange"></div>
+            <div class="musicGroup yellow"></div>
+            <div class="musicGroup green"></div>
+            <div class="musicGroup "></div>
         </div>
         <div class="container">
-            <div class="musicGroup1"></div>
-            <div class="musicGroup1"></div>
-            <div class="musicGroup1"></div>
-            <div class="musicGroup1"></div>
-            <div class="musicGroup1"></div>
+            <div class="musicGroup1 blue"></div>
+            <div class="musicGroup1 purple"></div>
+            <div class="musicGroup1 pink"></div>
+            <div class="musicGroup1 grey"></div>
+            <div class="musicGroup1 black"></div>
         </div>
 
         
