@@ -28,7 +28,7 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="Search.php">
               <span class="fa fa-search"></span>
               <span>Search</span>
             </a>
@@ -67,8 +67,12 @@
     <div class="main-container">
       <div class="topbar">
         <div class="prev-next-buttons">
-          <button type="button" class="fa fas fa-chevron-left"></button>
+        <a href="#" class="link">
+                <button type="button" class="fa fas fa-chevron-left"></button>
+            </a>
+            <a href="#" class="link">
           <button type="button" class="fa fas fa-chevron-right"></button>
+            </a>
         </div>
 
       <div class="navbar">
@@ -241,9 +245,6 @@
           </div>
         </div>
       </div>
-
-     
-
         <hr>
       </div>
 
