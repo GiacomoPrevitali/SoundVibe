@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>SoundVibe</title>
+<title>Search</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" />
@@ -81,22 +81,22 @@
           <img src="./Foto/lente.ico" alt="lente" width="40px"/>
          <!-- <button type="button" class="fa fa-search"></button>-->
         </div>
-
+        <div class="account"><h4>Giacomo</h4></div>
       </div>
     
         <div class="container">
-            <div class="musicGroup red"><h2>RAP</h2></div>
-            <div class="musicGroup orange"></div>
-            <div class="musicGroup yellow"></div>
-            <div class="musicGroup green"></div>
-            <div class="musicGroup "></div>
+            <div class="musicGroup first1"><h2>RAP</h2></div>
+            <div class="musicGroup second1"><h2>HIP POP</h2></div>
+            <div class="musicGroup third1"><h2>POP</h2></div>
+            <div class="musicGroup fourth1"><h2>AFRO</h2></div>
+            <div class="musicGroup fifth1"><h2>ROCK</h2></div>
         </div>
         <div class="container">
-            <div class="musicGroup1 blue"></div>
-            <div class="musicGroup1 purple"></div>
-            <div class="musicGroup1 pink"></div>
-            <div class="musicGroup1 grey"></div>
-            <div class="musicGroup1 black"></div>
+          <div class="musicGroup1 first2"><h2>DANCE</h2></div>
+            <div class="musicGroup1 second2"><h2>RELAX</h2></div>
+            <div class="musicGroup1 third2"><h2>INDIE</h2></div>
+            <div class="musicGroup1 fourth2"><h2>ITALIA</h2></div>
+            <div class="musicGroup1 fifth2"><h2>PARTY</h2></div>
         </div>
 
         
