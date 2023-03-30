@@ -14,8 +14,8 @@ Input::placeholder {
   }
 .square {
 
-  position: absolute;
-  left: 37%;
+    position: absolute;
+    left: 37%;
     height: 50%;
     width: 25%;
     background: linear-gradient(to bottom, #579bc6, #68bbdb, #51e2e0);
