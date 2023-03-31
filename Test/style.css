@@ -1,6 +1,4 @@
 /*Vedere se responsive*/
-
-
 * {
     padding: 0;
     margin: 0;
@@ -15,7 +13,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 196px;
+    width: 10%;
     background-color: cornflowerblue;
     padding: 24px;
   }
@@ -24,7 +22,8 @@
   }
   .sidebar .navigation ul {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 2
+    0px;
   }
   .sidebar .navigation ul li {
     padding: 10px 0px;
@@ -85,47 +84,32 @@
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 14px 30px;
+    padding-top: 14px;
+    padding-bottom: 30px;
+    
+
   }
   .link{
     text-decoration: none;
   }
+  /*pagina selezionata sidebar*/
   .Scolor{
     color: black;
   }
   /*Bottoni SX e DX*/
-  .topbar .prev-next-buttons button {
+  .topbar .navbar ul{
     position: absolute;
-    color: cornflowerblue;
-    cursor: pointer;
-    width: 34px;
-
-    height: 34px;
-    border-radius: 100%;
-    font-size: 18px;
-    border: 0px;
-    background-color: #090909;
-    margin-right: 10px;
-  }
-  .topbar .navbar {
-    display: flex;
-    align-items: center;
-  }
-  .topbar .navbar ul {
-    list-style: none;
-  }
-  .LogButton{
-    position: absolute;
-    left: 90%;
-    top: 2%;
+    left: 83%;
+    padding-bottom: 20px;
   }
   .topbar .navbar ul li {
+   
     display: inline-block;
     margin: 0px 8px;
-    
     padding-right: 30px;
     width: 70px;
   }
+
   .topbar .navbar ul li a {
     color: #b3b3b3;
     text-decoration: none;
@@ -147,8 +131,6 @@
   }
   .topbar .navbar button {
     background-color: white;
-    border-width: thick;
-    border-color: cornflowerblue;
     color: #000000;
     font-size: 16px;
     font-weight: bold;
@@ -352,17 +334,14 @@
 
   }
 
-.musicGroup h2{
+.musicGroup, .musicGroup1, h2{
+  position: relative;
   font-size: 30px;
   color: white;
-  text-align: right;
-  
+  text-align: center;  
+  top: -10px;
 }
-.musicGroup1 h2{
-  color: white;
-  font-size: 30px;
-  text-align: right;
-}
+
 .fourth2 h2{
   color: black
 }
@@ -377,7 +356,7 @@
     background-image: url(https://www.nme.com/wp-content/uploads/2016/09/2014outkast_stankonia_101213.jpg);
     background-size: cover;
     color: rgb(137, 136, 136);
-    left: 37%;
+    
   }
   .third1{
     background-image: url(https://images.musicrad.io/resizer/?image=aHR0cHM6Ly9pczEtc3NsLm16c3RhdGljLmNvbS9pbWFnZS90aHVtYi9NdXNpYzEyNC92NC8yNC9hOC9lYS8yNGE4ZWE0NC1iYjc1LWEyNmUtYTgyZC01YTNmODVlODhjYTIvc291cmNlLzYwMHg2MDBiYi5qcGc%3D&width=600&signature=iR0vL140yPvUiXhxysSfHYwTNVo=);
@@ -426,13 +405,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
     text-align: center;
     color: white;
     border-radius: 20px;
     width: auto;
     padding: 10px;
     background-color: #262626;
+  }
+  .account :hover{
+  
+    
+    width: auto;
+    
+    background-color: #a80b0b;
+    
   }
   .Music{
     width: 100%;

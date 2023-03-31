@@ -16,7 +16,7 @@
         <a href="#">
           <img src="./Foto/logo.png" alt="Logo" />
         </a>
-    </div>
+      </div>
 
       <div class="navigation">
         <ul>
@@ -60,14 +60,11 @@
           </li>
         </ul>
       </div>
-
-     
     </div>
 
     <div class="main-container">
       <div class="topbar">
         <div class="navbar">
-          <div class="LogButton">
             <ul>
               <li>
                 <a href="./../Registrazione/index.php">
@@ -80,7 +77,6 @@
                 </a>
               </li>
             </ul>
-          </div>
         </div>
       </div>
 
