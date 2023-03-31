@@ -29,15 +29,15 @@
 
           <li>
             <a href="Search.php">
-              <span class="fa fa-search Scolor"></span>
-              <span class="Scolor">Search</span>
+              <span class="fa fa-search "></span>
+              <span>Search</span>
             </a>
           </li>
 
           <li>
             <a href="Library.php">
-              <span class="fa fas fa-book"></span>
-              <span>Your Library</span>
+              <span class="fa fas fa-book Scolor"></span>
+              <span class="Scolor">Your Library</span>
             </a>
           </li>
         </ul>

@@ -22,8 +22,8 @@
         <ul>
           <li>
             <a href="#">
-              <span class="fa fa-home"></span>
-              <span>Home</span>
+              <span class="fa fa-home Scolor"></span>
+              <span class="Scolor">Home</span>
             </a>
           </li>
 

@@ -320,6 +320,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ;
   }
   .musicGroup{
     margin-right: 10px;
@@ -332,6 +333,10 @@
     border-radius: 10px;
     float: left;
     box-shadow: rgba(0.2, 0, 0, 0.24) 0px 3px 8px;
+  }
+   
+  .container :hover{
+    transform: scale(1.1);
   }
   .musicGroup1{
     margin-right: 10px;
@@ -346,20 +351,22 @@
     box-shadow: rgba(0.1, 0, 0, 0.24) 0px 3px 8px;
 
   }
+
 .musicGroup h2{
-  position: relative;
-  top: 25%;
-  left: 0%;
   font-size: 30px;
   color: white;
+  text-align: right;
+  
 }
 .musicGroup1 h2{
-  position: relative;
-  top: 80%;
-  left: 67%;
   color: white;
   font-size: 30px;
+  text-align: right;
 }
+.fourth2 h2{
+  color: black
+}
+ 
   .first1{
    /* background-color: red;*/
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2z2ZOQVXwF93riROTHyhtqwZYTvnUf-QrPA&usqp=CAU);
@@ -372,40 +379,20 @@
     color: rgb(137, 136, 136);
     left: 37%;
   }
-  .second1 h2{
-    position: relative;
-    top: 85%;
-    left: 60%;
-  }
-  .second2 h2{
-    position: relative;
-    left: 50%;
-  }
   .third1{
     background-image: url(https://images.musicrad.io/resizer/?image=aHR0cHM6Ly9pczEtc3NsLm16c3RhdGljLmNvbS9pbWFnZS90aHVtYi9NdXNpYzEyNC92NC8yNC9hOC9lYS8yNGE4ZWE0NC1iYjc1LWEyNmUtYTgyZC01YTNmODVlODhjYTIvc291cmNlLzYwMHg2MDBiYi5qcGc%3D&width=600&signature=iR0vL140yPvUiXhxysSfHYwTNVo=);
     background-size: cover;
-    color: white;
-    
+    color: white; 
   }
   .fourth1{
     background-image: url(https://m.media-amazon.com/images/I/415UiXGP4lL._UXNaN_FMjpg_QL85_.jpg);
     background-size: cover;
     color: white;
   }
-
-  .fourth1 h2{
-    position: relative;
-    top: 85%;
-    left: 58%;
-  }
   .first2{
     background-image: url(https://media.musyance.com/posts/2020/17/o_7bb7f770e6bad26396ec7753043cad45-15fb3ed91ed79d.jpeg);
     background-size: cover;
     color: white;
-  }
-  .first2 h2{
-    position: relative;
-    left: 47%;
   }
   .second2{
     background-image: url(https://t4.ftcdn.net/jpg/01/04/78/75/360_F_104787586_63vz1PkylLEfSfZ08dqTnqJqlqdq0eXx.jpg);
@@ -417,22 +404,11 @@
     background-size: cover;
     color: white;
   }
-
-  .third2 h2{
-    position: relative;
-    left: 50%;
-  }
   .fourth2{
     background-image: url(https://i1.sndcdn.com/avatars-000669572207-rw5e2o-t500x500.jpg);
     background-size: cover;
     
   }
-  .fourth2 h2{
-    position: relative;
-    left: 50%;
-    color: #242424;
-  }
-
   .fifth1{
     background-image: url(https://img.buzzfeed.com/buzzfeed-static/static/2017-01/25/11/asset/buzzfeed-prod-fastlane-03/sub-buzz-27248-1485361539-3.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto);
     background-size: cover;
@@ -443,16 +419,6 @@
     background-size: cover;
     color: white;
   }
-  .fifth1 h2{
-    position: relative;
-    top: 85%;
-    left: 55%;
-  }
-  .fifth2 h2{
-    position: relative;
-    left: 50%;
-  }
- 
 
   .account{
     position: absolute;
