@@ -68,21 +68,23 @@
       <div class="topbar">
         <div class="account"><h4>Giacomo</h4></div>
       </div>
-
-        
-
-    
-
-
-
-      </div>
-        <hr>
-      </div>
-
-     
-      </div>
-    </div>
-
+      <table>
+        <tr>
+          <td>ccc</td>
+          <td>ccc</td>
+          <td>ccc</td>
+        </tr>
+        <tr>
+          <td>ccc</td>
+          <td>ccc</td>
+          <td>ccc</td>
+        </tr>
+        <tr>
+          <td>ccc</td>
+          <td>ccc</td>
+          <td>ccc</td>
+        </tr>
+      </table>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"
       crossorigin="anonymous"
