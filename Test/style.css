@@ -427,7 +427,7 @@
     left: 0; /* posizione sinistra */
     bottom: 0; /* posizione in basso */
     width: 100%; /* larghezza del div */
-    height: 100px; /* altezza del div */
+    height: 80px; /* altezza del div */
     background-color: #181818;
   }
 
@@ -435,7 +435,7 @@
     width: 40px;
     height: 40px;
     background-color: #ccc;
-    margin-right: 10px;
+    margin-right: 30px;
     cursor: pointer;
     background-color: #181818;
   }
