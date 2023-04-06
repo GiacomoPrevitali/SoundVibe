@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-<title>Search</title>
-        <meta charset="utf-8">
+<title>SoundVibe</title>
+<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" />
         <script type="text/javascript" src="script.js"></script>
@@ -10,7 +10,6 @@
 </head> 
 <body>
 <body>
-<!-- modifica, elimina, scarica pdf -->
     <div class="sidebar">
       <div class="logo">
         <a href="#">
@@ -29,8 +28,8 @@
 
           <li>
             <a href="Search.php">
-              <span class="fa fa-search Scolor"></span>
-              <span class="Scolor">Search</span>
+              <span class="fa fa-search "></span>
+              <span>Search</span>
             </a>
           </li>
 
@@ -42,7 +41,6 @@
           </li>
         </ul>
       </div>
-
       <div class="navigation">
         <ul>
           <li>
@@ -54,8 +52,8 @@
 
           <li>
             <a href="#">
-              <span class="fa fas fa-heart"></span>
-              <span>Liked Songs</span>
+              <span class="fa fas fa-heart Scolor"></span>
+              <span class="Scolor">Liked Songs</span>
             </a>
           </li>
         </ul>
@@ -63,44 +61,43 @@
     </div>
 
     <div class="main-container">
-      <div class="topbar">
-        <!--Search Bar-->
-        <div class="search-bar">
-          <input type="text" placeholder="Search for artists, songs, or podcasts" />
-          <img src="./Foto/lente.ico" alt="lente" width="40px"/>
+        <div class="topbar">
+            <div class="navbar">
+                <div class="butLog">
+                    <a href="./../Registrazione/index.php">
+                        <h4 class="link">Sign Up</h4>
+                    </a>
+                    <a href="./../Login/index.php">
+                        <h4 class="link">Sign Up</h4>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="account"><h4>Giacomo</h4></div>
-      </div>
-    
-        <div class="container">
-            <div class="musicGroup first1"><h2>RAP</h2></div>
-            <div class="musicGroup second1"><h2>HIP POP</h2></div>
-            <div class="musicGroup third1"><h2>POP</h2></div>
-            <div class="musicGroup fourth1"><h2>AFRO</h2></div>
-            <div class="musicGroup fifth1"><h2>ROCK</h2></div>
-        </div>
-        <div class="container">
-          <div class="musicGroup1 first2"><h2>DANCE</h2></div>
-            <div class="musicGroup1 second2"><h2>RELAX</h2></div>
-            <div class="musicGroup1 third2"><h2>INDIE</h2></div>
-            <div class="musicGroup1 fourth2"><h2>ITALIA</h2></div>
-            <div class="musicGroup1 fifth2"><h2>PARTY</h2></div>
+        <div class="FavTable">
+            <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Brano</th>
+                    <th>Artista</th>
+                    <th>Aggiunta</th>
+                    <th>Durata</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
 
-        
-
-    
-
-
-
-      </div>
-        <hr>
+     
+    </div>
+      
+      <div class="Music">
+          <img src="./Foto/back.ico">
+          <img id="play-pause" onclick="changeImage()" src="./Foto/Play_Icon.png">
+          <img src="./Foto/skip.ico">
       </div>
 
      
-      </div>
-    </div>
-
+     
     <script
       src="https://kit.fontawesome.com/23cecef777.js"
       crossorigin="anonymous"

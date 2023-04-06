@@ -14,17 +14,16 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 10%;
+    width: 12%;
     background-color: cornflowerblue;
     padding: 24px;
   }
   .sidebar .logo img {
-    width: 130px;
+    width: 80%;
   }
   .sidebar .navigation ul {
     list-style: none;
-    margin-top: 2
-    0px;
+    margin-top: 20px;
   }
   .sidebar .navigation ul li {
     padding: 10px 0px;
@@ -40,11 +39,7 @@
   .sidebar .navigation ul li a:focus {
     color: black;
   }
-  .sidebar .navigation ul li a:hover .fa,
-  .sidebar .navigation ul li a:active .fa,
-  .sidebar .navigation ul li a:focus .fa {
-    color: black;
-  }
+ 
   .sidebar .navigation ul li .fa {
     font-size: 20px;
     margin-right: 10px;
@@ -56,8 +51,7 @@
   }
   
   .main-container {
-    margin-left: 245px;
-    margin-bottom: 100px;
+    margin-left: 14%;
   }
   
   .topbar {
@@ -115,16 +109,18 @@
     cursor: pointer;
     margin-left: 20px;
     width: max-content;
+    
   }
  
   .butLog {
     position: absolute;
-    left: 82%;
+    left: 85%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-left: 20px;
     text-decoration: none;
+    
   }
   .butLog h4{
     margin-right: 10px;
@@ -134,6 +130,8 @@
     padding: 10px;
     width: max-content;
     background-color: #ffffff;
+    border-color: #000000;
+    border: 1px solid cornflowerblue;
     
   }
   .butLog h4:hover{
@@ -143,30 +141,12 @@
     text-decoration: none;
   }
 
-  .topbar .navbar button:hover,
-  .topbar .navbar button:active,
-  .topbar .navbar button:focus {
-    background-color: #f2f2f2;
-  }
-
-  /*Pagina Principale*/
-  .soundvibe-playlists {
-    padding: 20px 40px;
-  }
-  .soundvibe-playlists h2 {
-    color: black;
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-
-
-  .soundvibe-playlists .list {
+   .container {
     display: flex;
     gap: 20px;
     overflow: hidden;
   }
-  .soundvibe-playlists .list .item {
+   .container .musicGroup .musicGroup1 {
     min-width: 140px;
     width: 12%;
     padding: 15px;
@@ -175,81 +155,20 @@
     cursor: pointer;
     transition: all ease 0.4s;
   }
-  .soundvibe-playlists .list .item:hover {
-    background-color: #252525;
-  }
-  .soundvibe-playlists .list .item img {
-    width: 100%;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
-  .soundvibe-playlists .list .item .play {
+   .container  .musicGroup .play .fa {
     position: relative;
-  }
-  .soundvibe-playlists .list .item .play .fa {
-    position: absolute;
-    right: 10px;
-    top: -60px;
+    right: -40%;
+    top: 60px;
     padding: 18px;
     background-color: cornflowerblue;
     border-radius: 100%;
     opacity: 0;
+    color: #000000;
     transition: all ease 0.4s;
   }
-  .soundvibe-playlists .list .item:hover .play .fa {
+  .container .musicGroup:hover .play .fa {
     opacity: 1;
-    transform: translateY(-20px);
-  }
-  .soundvibe-playlists .list .item h4 {
-    color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .soundvibe-playlists .list .item p {
-    color: #989898;
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 600;
-  }
-  .soundvibe-playlists hr {
-    margin: 70px 0px 0px;
-    border-color: #636363;
-  }
-  
-  .preview {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to right, #ae2896, #509bf5);
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .preview h6 {
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  .preview p {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .preview button {
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 14px 30px;
-    border: 0px;
-    border-radius: 40px;
-    cursor: pointer;
+    transform: translateY(-40px);
   }
 
   /*SearchBar*/
@@ -317,6 +236,10 @@
     float: left;
     box-shadow: rgba(0.2, 0, 0, 0.24) 0px 3px 8px;
   }
+
+  .musicHome{
+    padding-top: 12%;
+  }
    
   .container :hover{
     transform: scale(1.1);
@@ -338,7 +261,7 @@
 .musicGroup, .musicGroup1, h2{
   position: relative;
   font-size: 30px;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;  
   top: -10px;
 }
@@ -399,6 +322,10 @@
     background-size: cover;
     color: white;
   }
+  .add{
+    background-image:  url(./Foto/Add.jpg);
+    background-size: cover;
+  }
 
   .account{
     position: absolute;
@@ -439,3 +366,61 @@
     cursor: pointer;
     background-color: #181818;
   }
+
+  .title{
+    position: absolute;
+    top: 10%;
+    left: 18%;
+  }
+  .favoriteCont{
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ;
+  }
+  .favoriteCont:hover{
+    transform: scale(1.01);
+  }
+  .favorite{
+    margin-top: 30px;
+    width: 90%;
+    background: linear-gradient(#9198e5,#bb5757 );
+  }
+
+
+  .FavTable{
+    position: relative;
+  }
+
+
+
+  .FavTable, table {
+    border-collapse: collapse;
+    width: 90%;
+    
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .FavTable, th, td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .FavTable, th {
+    background-color: cornflowerblue;
+    font-weight: bold;
+    color: #fffefe;
+    text-transform: uppercase;
+  }
+  
+  .FavTable, tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  

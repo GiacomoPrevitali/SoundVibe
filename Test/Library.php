@@ -68,23 +68,17 @@
       <div class="topbar">
         <div class="account"><h4>Giacomo</h4></div>
       </div>
-      <table>
-        <tr>
-          <td>ccc</td>
-          <td>ccc</td>
-          <td>ccc</td>
-        </tr>
-        <tr>
-          <td>ccc</td>
-          <td>ccc</td>
-          <td>ccc</td>
-        </tr>
-        <tr>
-          <td>ccc</td>
-          <td>ccc</td>
-          <td>ccc</td>
-        </tr>
-      </table>
+      <h1 class="title"> La tua Libreria</h1>
+      <div class="container">
+            <div class="musicGroup first1"><h2>RAP</h2></div>
+            <div class="musicGroup second1"><h2>HIP POP</h2></div>
+            <div class="musicGroup third1"><h2>POP</h2></div>
+            <div class="musicGroup fourth1"><h2>AFRO</h2></div>
+            <div class="musicGroup add"><h2>NEW</h2></div>
+      </div>
+      <div class="favoriteCont">
+        <div class="musicGroup favorite "><h2>Preferiti</h2></div>
+      </div>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"
       crossorigin="anonymous"
