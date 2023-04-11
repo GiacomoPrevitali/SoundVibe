@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (isset($_SESSION['Nome'])){
+ }else{
+      header("Location: Login.php");
+ }
+?>
 <!DOCTYPE html>
 <head>
 <title>Search</title>
@@ -53,7 +60,7 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="Liked.php">
               <span class="fa fas fa-heart"></span>
               <span>Liked Songs</span>
             </a>
@@ -69,7 +76,16 @@
           <input type="text" placeholder="Search for artists, songs, or podcasts" />
           <img src="./Foto/lente.ico" alt="lente" width="40px"/>
         </div>
-        <div class="account"><h4>Giacomo</h4></div>
+        <div class="butLog">
+                <a href="#">
+                  <!--<button type="button" class="button1">Sign Up</button>-->
+                  <h4 class="link AccountName" ><?php echo $_SESSION['Nome']; ?></h4>
+                </a>
+             
+                <a href="destroy.php">
+                  <h4 class="link logout">Logout</h4>
+                </a>
+            </div>
       </div>
     
         <div class="container">

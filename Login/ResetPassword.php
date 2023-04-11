@@ -17,7 +17,6 @@
 </form>
 
 <?php
-
 if (isset($_POST['MailF'])){
             $ip= '127.0.0.1';
             $username='root';

@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (isset($_SESSION['Nome'])){
+ }else{
+      header("Location: Login.php");
+ }
+?>
 <!DOCTYPE html>
 <head>
 <title>Your Library</title>
@@ -46,14 +53,14 @@
       <div class="navigation">
         <ul>
           <li>
-            <a href="#">
+            <a href="Library.php">
               <span class="fa fas fa-plus-square"></span>
               <span>Create Playlist</span>
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="Liked.php">
               <span class="fa fas fa-heart"></span>
               <span>Liked Songs</span>
             </a>
@@ -66,7 +73,16 @@
 
     <div class="main-container">
       <div class="topbar">
-        <div class="account"><h4>Giacomo</h4></div>
+      <div class="butLog">
+                <a href="#">
+                  <!--<button type="button" class="button1">Sign Up</button>-->
+                  <h4 class="link AccountName" ><?php echo $_SESSION['Nome']; ?></h4>
+                </a>
+             
+                <a href="destroy.php">
+                  <h4 class="link logout">Logout</h4>
+                </a>
+            </div>
       </div>
       <h1 class="title"> La tua Libreria</h1>
       <div class="container">

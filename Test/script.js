@@ -6,3 +6,8 @@ function changeImage() {
       image.src = "./Foto/Play_Icon.png";
     }
   }
+
+
+  function Logout(){
+
+  }

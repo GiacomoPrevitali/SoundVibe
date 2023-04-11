@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (isset($_SESSION['Nome'])){
+ }else{
+      header("Location: Login.php");
+ }
+?>
 <!DOCTYPE html>
 <head>
 <title>SoundVibe</title>
@@ -44,14 +51,14 @@
       <div class="navigation">
         <ul>
           <li>
-            <a href="#">
+            <a href="Library.php">
               <span class="fa fas fa-plus-square"></span>
               <span>Create Playlist</span>
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="Liked.php">
               <span class="fa fas fa-heart Scolor"></span>
               <span class="Scolor">Liked Songs</span>
             </a>
@@ -63,14 +70,16 @@
     <div class="main-container">
         <div class="topbar">
             <div class="navbar">
-                <div class="butLog">
-                    <a href="./../Registrazione/index.php">
-                        <h4 class="link">Sign Up</h4>
-                    </a>
-                    <a href="./../Login/index.php">
-                        <h4 class="link">Sign Up</h4>
-                    </a>
-                </div>
+            <div class="butLog">
+                <a href="#">
+                  <!--<button type="button" class="button1">Sign Up</button>-->
+                  <h4 class="link AccountName"><?php echo $_SESSION['Nome']; ?></h4>
+                </a>
+             
+                <a href="destroy.php">
+                  <h4 class="link logout">Logout</h4>
+                </a>
+            </div>
             </div>
         </div>
         <div class="FavTable">

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_registrazione.css" />
 
     </head>
     <body>
@@ -25,6 +25,10 @@
         
         $sql='INSERT INTO users (Id, Nome, Cognome, Data_Nascita, Codice_Fiscale, Mail, Pass) VALUES (NULL, "'.$_POST['Nome'].'", "'.$_POST['Cognome'].'", "'.$_POST['Data_Nascita'].'", "'.$_POST['Codice_Fiscale'].'", "'.$_POST['Mail'].'", "'.md5($_POST['Password']).'")';
         $connection->query($sql);
+            //fare chiamata per ID utente
+        $sql='CREATE TABLE 12_0 (Id_Canzone int(11) NOT NULL,Canzone int(11) NOT NULL)';
+          )
+
     }
     ?>
         <center>

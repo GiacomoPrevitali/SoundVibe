@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (isset($_SESSION['Nome'])){
+ }else{
+      header("Location: Login.php");
+ }
+?>
 <!DOCTYPE html>
 <head>
 <title>SoundVibe</title>
@@ -45,14 +52,14 @@
       <div class="navigation">
         <ul>
           <li>
-            <a href="#">
+            <a href="Library.php">
               <span class="fa fas fa-plus-square"></span>
               <span>Create Playlist</span>
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="Liked.php">
               <span class="fa fas fa-heart"></span>
               <span>Liked Songs</span>
             </a>
@@ -65,96 +72,17 @@
       <div class="topbar">
         <div class="navbar">
            <div class="butLog">
-                <a href="./../Registrazione/index.php">
+                <a href="#">
                   <!--<button type="button" class="button1">Sign Up</button>-->
-                  <h4 class="link">Sign Up</h4>
+                  <h4 class="link AccountName"><?php echo $_SESSION['Nome']; ?></h4>
                 </a>
              
-                <a href="./../Login/index.php">
-                 <!-- <button type="button">Log In</button>-->
-                  <h4 class="link">Sign Up</h4>
+                <a href="destroy.php">
+                    <h4 class="link logout">Logout</h4>
                 </a>
-              </div>
+            </div>
         </div>
       </div>
-
-     <!-- <div class="soundvibe-playlists">
-        <h2>SoundVibe Playlists</h2>
-
-        <div class="list">
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Today's Top Hits</h4>
-            <p>Rema & Selena Gomez are on top of the...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>RapCaviar</h4>
-            <p>New Music from Lil Baby, Juice WRLD an...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>All out 2010s</h4>
-            <p>The biggest spmgs pf tje 2010s. Cover:...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Rock Classics</h4>
-            <p>Rock Legends & epic songs that continue t...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Chill Hits</h4>
-            <p>Kick back to the best new and recent chill...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Viva Latino</h4>
-            <p>Today's top Latin hits elevando nuestra...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Mega Hit Mix</h4>
-            <p>A mega mix of 75 favorites from the last...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>All out 80s</h4>
-            <p>The biggest songs of the 1090s.</p>
-          </div>
-        </div>
-      </div>-->
       <h1 class="title"> Le tue Playlist</h1>
         <div class="container">
 
@@ -189,81 +117,6 @@
               <h2>ROCK</h2>
             </div>
         </div>
-     <!-- <div class="soundvibe-playlists">
-        <h2>Focus</h2>
-        <div class="list">
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Rap</h4>
-            <p>Prova</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Deep Focus</h4>
-            <p>Keep calm and focus with ambient and pos...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Instrumental Study</h4>
-            <p>Focus with soft study music in the...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>chill lofi study beats</h4>
-            <p>The perfect study beats, twenty four...</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Coding Mode</h4>
-            <p>Dedicated to all the programmers out there.</p>
-          </div>
-          
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Focus Flow</h4>
-            <p>Uptempo instrumental hip hop beats.</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Calm Before The Storm</h4>
-            <p>Calm before the storm music.</p>
-          </div>
-
-          <div class="item">
-            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-            <div class="play">
-              <span class="fa fa-play"></span>
-            </div>
-            <h4>Beats to think to</h4>
-            <p>Focus with deep techno and tech house.</p>
-          </div>
-        </div>-->
       </div>
         <hr>
       
