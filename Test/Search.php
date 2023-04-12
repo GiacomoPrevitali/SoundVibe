@@ -94,6 +94,7 @@
             <div class="musicGroup third1"><h2>POP</h2></div>
             <div class="musicGroup fourth1"><h2>AFRO</h2></div>
             <div class="musicGroup fifth1"><h2>ROCK</h2></div>
+            
         </div>
         <div class="container">
           <div class="musicGroup1 first2"><h2>DANCE</h2></div>

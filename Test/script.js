@@ -7,7 +7,6 @@ function changeImage() {
     }
   }
 
-
-  function Logout(){
-
-  }
+function GoPlaylist() {
+ alert("ciao");
+ }

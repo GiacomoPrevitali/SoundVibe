@@ -78,7 +78,7 @@
                 </a>
              
                 <a href="destroy.php">
-                    <h4 class="link logout">Logout</h4>
+                    <h4  class="link logout">Logout</h4>
                 </a>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 echo '
                         <div class="musicGroup first1 musicHome">
                           <div class="play">
-                            <span class="fa fa-play"></span>
+                            <span onclick="GoPlaylist()" class="fa fa-play"></span>
                           </div>
                           <h2>'.$Titolo.'</h2>
                       </div>';
