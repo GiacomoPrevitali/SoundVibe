@@ -144,6 +144,7 @@
   }
 
    .container {
+    margin-bottom: 100px;
     display: flex;
     gap: 20px;
     overflow: hidden;

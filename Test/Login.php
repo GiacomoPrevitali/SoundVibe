@@ -40,22 +40,21 @@
             if ($connection->connect_error) {
                 die('C\'è stato un errore: ' . $connection->connect_error);
             }
-            $sql ='SELECT Nome  FROM users WHERE Pass="'.md5($_POST['Password']).'" AND mail="'.$_POST['Mail'].'" ';
+            $sql ='SELECT Nome, Id  FROM users WHERE Pass="'.md5($_POST['Password']).'" AND mail="'.$_POST['Mail'].'" ';
             $result =$connection->query($sql);
 
             if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
                     $_SESSION['Nome']=$row['Nome'];
+                    $_SESSION['Id']=$row['Id'];
+
                     echo '<div class="alert alert-success my-4">Benvenuto '.$row['Nome'].'</div>';
                     header("Location: index.php");
                 }
               }else{
                 echo '<div class="alert alert-danger my-4">Credenziali sbagliate</div>';
               }
-
-
         }
-
 ?>
 	</div>
 	</div>

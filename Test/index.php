@@ -84,9 +84,36 @@
         </div>
       </div>
       <h1 class="title"> Le tue Playlist</h1>
-        <div class="container">
+        <div class="container"><?php
+        $ip= '127.0.0.1';
+        $username='root';
+        $password='';
+        $database='SoundVibe';
 
-            <div class="musicGroup first1 musicHome">
+        $connection=new mysqli($ip,$username,$password,$database);
+        if ($connection->connect_error) {
+            die('C\'è stato un errore: ' . $connection->connect_error);
+        }
+        $sql ='SELECT * FROM '.$_SESSION['Id'].'_2';
+        $result =$connection->query($sql);
+
+        if($result->num_rows>0){
+            while($row=$result->fetch_assoc()){
+                $Titolo=$row['Titolo'];
+                echo '
+                        <div class="musicGroup first1 musicHome">
+                          <div class="play">
+                            <span class="fa fa-play"></span>
+                          </div>
+                          <h2>'.$Titolo.'</h2>
+                      </div>';
+
+            }
+          }else{
+            echo '<div class="alert alert-danger my-4">Nessuna Playlist</div>';
+          }
+      ?>
+            <!--<div class="musicGroup first1 musicHome">
               <div class="play">
                 <span class="fa fa-play"></span>
               </div>
@@ -115,7 +142,7 @@
                 <span class="fa fa-play"></span>
               </div>
               <h2>ROCK</h2>
-            </div>
+            </div>-->
         </div>
       </div>
         <hr>
