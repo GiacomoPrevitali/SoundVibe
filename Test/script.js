@@ -6,6 +6,8 @@ function changeImage() {
       image.src = "./Foto/Play_Icon.png";
     }
   }
+//che cosa è chat gpt? 
+
 
 function GoPlaylist() {
  alert("ciao");
