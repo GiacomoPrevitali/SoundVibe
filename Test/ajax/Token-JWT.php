@@ -10,6 +10,8 @@
 	$header = base64_decode($tokenParts[0]);
 	$payload = base64_decode($tokenParts[1]);
 	$signature_provided = $tokenParts[2];
+
+	$data=json_decode($payload);
 	//echo $payload;
 	// check the expiration time - note this will cause an error if there is no 'exp' claim in the jwt
 //	$expiration = json_decode($payload)->exp;
@@ -31,7 +33,7 @@
 	} else {
 		//$result=array('result'=>'1');
 		$json=array('result'=>'1',
-					'payload'=>$payload);
+					'payload'=>$data);
 		//array_push($json,$result);
 	}
 	//array_push($json,$result);

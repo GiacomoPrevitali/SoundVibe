@@ -1,3 +1,5 @@
+var Id;
+
 function changeImage() {
     var image = document.getElementById("play-pause");
     if (image.src.match("./Foto/Play_Icon.png")) {
@@ -29,7 +31,10 @@ function prova(){
         Jwt: localStorage.getItem('jwtToken')
       },
       success: function(data){
-        console.log(data.payload);
+        console.log(data.payload.Id);
+        Id=data.payload.Id;
+        alert("IOIO"+Id);
+        AddPlaylist();
        // localStorage.setItem('jwtToken', token);
         //window.location.href="index.php";
       },
@@ -46,7 +51,6 @@ function prova(){
   function removeTokenFromLocalStorage() {
   localStorage.removeItem('jwtToken');  
 }
-
 
 
 
@@ -68,14 +72,14 @@ function prova(){
         },  
         success: function(data){ 
           if(data[0].Nome!='A'){
-
-          
+            alert("Id "+data[0].Id);
           $.ajax({
             url: "Token-JWT/jwt.php",      
             type: "POST",       
             dataType: "json",  
             //contentType: "application/json; charset=utf-8",  
             data: {
+              Id: data[0].Id,
               Nome: data[0].Nome,
               Cognome: data[0].Cognome,
               Codice_Fiscale: data[0].Codice_Fiscale,
@@ -108,3 +112,27 @@ function prova(){
       });
   });
 });
+
+
+function AddPlaylist(){
+$.ajax({
+  url: "ajax/QueryPlaylist.php",      
+  type: "POST",       
+  dataType: "json",  
+  //contentType: "application/json; charset=utf-8",  
+  data: {
+    Id: Id,
+  },
+  success: function(token){
+    console.log("dsgsdgdg"+token);
+    localStorage.setItem('jwtToken', token);
+    window.location.href="index.php";
+  },
+  error: function (data, xhr, ajaxOptions, thrownError) {
+    console.log(data)
+    alert(Id);
+    alert(xhr.status);
+    alert(thrownError);
+  }
+})
+  }

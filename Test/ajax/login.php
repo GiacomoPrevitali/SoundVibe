@@ -3,7 +3,7 @@
 require_once('config.php');
 
 $sql ='SELECT * FROM users WHERE Mail="'.$_POST['Mail'].'" AND Pass="'.md5($_POST['Password']).'"';
-echo $_POST['Mail'];
+//echo $_POST['Mail'];
 $result =$connection->query($sql);
 $json=array();
 if($result->num_rows>0){
