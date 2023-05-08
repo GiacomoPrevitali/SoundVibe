@@ -7,7 +7,9 @@ function changeImage() {
     }
   }
 
-
+function prova(){
+  alert("ciao");
+}
   function saveTokenToLocalStorage(token) {
     localStorage.setItem('jwtToken', token);
     //alert(token);
@@ -17,7 +19,27 @@ function changeImage() {
   function getTokenFromLocalStorage() {
     var token;
     token=localStorage.getItem('jwtToken');
-    return token;
+    console.log(token);
+    $.ajax({
+      url: "Ajax/Token-JWT.php",     
+      type: "POST",       
+      dataType: "json",  
+      //contentType: "application/json; charset=utf-8",  
+      data: {
+        Jwt: localStorage.getItem('jwtToken')
+      },
+      success: function(data){
+        console.log(data.payload);
+       // localStorage.setItem('jwtToken', token);
+        //window.location.href="index.php";
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
+    //return token;
   }
 
 // Rimuove il token JWT dal localStorage
@@ -86,33 +108,3 @@ function changeImage() {
       });
   });
 });
-
-/*
-$(document).ready(function() {
-  document.getElementById("Login-Form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    $.ajax({ 
-    url: "Ajax/AddValutation.php",  
-    type: "POST",           
-    dataType: "json",  
-    data: {
-      Nome: document.getElementById("Nome").value,
-      DataVal: document.getElementById("Data").value,
-      pesoEff: document.getElementById("pesoEff").value,
-      AltIn: document.getElementById("AltIn").value,
-      DistVert: document.getElementById("DistVert").value,
-      DistOrizz: document.getElementById("DistOrizz").value,
-      DistAngo: document.getElementById("DistAngo").value,
-      PresaC: document.getElementById("PresaC").value,
-      Freq: document.getElementById("Freq").value,
-      Prezzo: document.getElementById("Prezzo").value,
-      Durata: document.getElementById("Durata").value
-    },      
-    success: function(data){   
-      console.log("dati salvati");
-    },
-    error: function (data) {
-      console.log(data);
-    }})
-  });
-});*/
