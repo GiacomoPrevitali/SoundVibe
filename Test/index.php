@@ -74,7 +74,7 @@
                 </a>
              
                 <a href="destroy.php">
-                    <h4  class="link logout">Logout</h4>
+                    <h4  class="link logout" onclick="removeTokenFromLocalStorage();">Logout</h4>
                 </a>
             </div>
         </div>

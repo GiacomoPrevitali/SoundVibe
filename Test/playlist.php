@@ -7,6 +7,16 @@
     <title>WORK</title>
 </head>
 <body>
+<table id="table">
+    <tr>
+        <td>Id</td>
+        <td>Titolo</td>
+        <td>Artista</td>
+        <td>Album</td>
+        <td>Durata</td>
+        <td>Data Aggiunta</td>
+    </tr>
+    </table>
     
 </body>
 </html>

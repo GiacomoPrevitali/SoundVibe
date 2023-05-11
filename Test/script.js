@@ -22,8 +22,8 @@ function prova(){
    // alert("ciaofsdfsdfsdf");
     var token;
     token=localStorage.getItem('jwtToken');
-
-   // alert(token);
+    if(token!=null){
+    alert(token);
     $.ajax({
       url: "Ajax/Token-JWT.php",     
       type: "POST",       
@@ -47,7 +47,9 @@ function prova(){
         alert(thrownError);
       }
     })
-    //return token;
+  }else{
+    window.location.href="login.php";
+  }    //return token;
   }
 
 // Rimuove il token JWT dal localStorage
@@ -128,16 +130,17 @@ function AddPlaylist(){
     },
     success: function(data){
       var i=0; 
-      if(data.lenght!=0){
+      if(data[0].Titolo!=null){
       $.each(data, function (key, value) {
        
-        
+        //data[i].Id,Id
         //document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
-        document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist"><div class="play"><span onclick="GoPlaylist()" class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
-        //alert(data[i].Nome);
+        document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
+        //alert(data[i].Id);
         i++;
       })
     }else{
+      //SISTEMARE
       document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist"><h2 id="pl1">Non hai ancora creato nessuna playlist</h2></div>';
     }
     },
@@ -150,5 +153,31 @@ function AddPlaylist(){
   })
 }
 
-function AddImages(data){}
+function GoTo(IdP,IdU){
+  
+  alert(IdP+" "+IdU);
+  $.ajax({
+    url: "ajax/QuerySong.php",      
+    type: "POST",       
+    dataType: "json",  
+    data: {
+      IdP: IdP,
+      IdU: IdU,
+    },
+    success: function(data){
+      console.log(data);
+      alert(data);
+      document.getElementById("table").innerHTML+='<tr><td>"+data[i].Id+"</td><td>';
+      window.location.href="Playlist.php";
+        
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(Id);
+      alert(xhr.status);
+      alert(thrownError);
+    }
+  })
+
+}
   
