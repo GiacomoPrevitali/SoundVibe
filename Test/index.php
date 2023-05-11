@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head> 
-<body onload="getTokenFromLocalStorage()">
+<body onload="getTokenFromLocalStorage();">
 <!--<script>getTokenFromLocalStorage()</script>-->  
 <div class="sidebar">
       <div class="logo">
@@ -69,7 +69,7 @@
         <div class="navbar">
            <div class="butLog">
                 <a href="#">
-                  <!--<button type="button" class="button1">Sign Up</button>-->
+                  <h4 type="button" id="AccountName" class="button1"></h4>
                  <!-- <h4 class="link AccountName"></h4>-->
                 </a>
              
@@ -79,9 +79,11 @@
             </div>
         </div>
       </div>
-      <h1 class="title"> Le tue Playlist</h1>
-        <div class="container">
-        <?php
+        <h1 class="title"> Le tue Playlist</h1>
+        <div class="container" id="container1"></div>
+
+          
+  <?php
         /*
         $ip= '127.0.0.1';
         $username='root';
@@ -103,7 +105,7 @@
                           <div class="play">
                             <span onclick="GoPlaylist()" class="fa fa-play"></span>
                           </div>
-                          <h2>'.$Titolo.'</h2>
+                          
                       </div>';
 
             }
@@ -111,37 +113,6 @@
             echo '<div class="alert alert-danger my-4">Nessuna Playlist</div>';
           }*/
       ?>
-            <!--<div class="musicGroup first1 musicHome">
-              <div class="play">
-                <span class="fa fa-play"></span>
-              </div>
-              <h2>RAP</h2>
-            </div>
-            <div class="musicGroup second1 musicHome">
-              <div class="play">
-                <span class="fa fa-play"></span>
-              </div>
-              <h2>HIP POP</h2>
-            </div>
-            <div class="musicGroup third1 musicHome">
-              <div class="play">
-                <span class="fa fa-play"></span>
-              </div>
-              <h2>POP</h2>
-            </div>
-            <div class="musicGroup fourth1 musicHome">
-              <div class="play">
-                <span class="fa fa-play"></span>
-              </div>
-              <h2>AFRO</h2>
-            </div>
-            <div class="musicGroup fifth1 musicHome">
-              <div class="play">
-                <span class="fa fa-play"></span>
-              </div>
-              <h2>ROCK</h2>
-            </div>-->
-        </div>
       </div>
         <hr>
       
@@ -151,7 +122,7 @@
           <img src="./Foto/skip.ico">
       </div>
 
-     
+      
       <script type="text/javascript" src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"

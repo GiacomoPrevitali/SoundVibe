@@ -1,33 +1,26 @@
-<?php 
+<?php
+//session_start();
 require_once('config.php');
 $Id=$_POST['Id'];
-//$sql ='SELECT * FROM '.$Id.'_2';
-$sql ='SELECT * FROM 38_2';
+$sql ='SELECT * FROM '.$_POST['Id'].'_2';
+//echo $_POST['Mail'];
 $result =$connection->query($sql);
-//echo $Id;
-$json=array();  
+$json=array();
 if($result->num_rows>0){
-   /* while($row=$result->fetch_assoc()){
-        $Titolo=$row['Titolo'];
-        echo '
-                <div class="musicGroup first1 musicHome">
-                  <div class="play">
-                    <span onclick="GoPlaylist()" class="fa fa-play"></span>
-                  </div>
-                  <h2>'.$Titolo.'</h2>
-              </div>';
-
+    while($row=mysqli_fetch_assoc($result)){
+        array_push($json,$row);
     }
-  }else{
-    echo '<div class="alert alert-danger my-4">Nessuna Playlist</div>';
-  }*/
-
-  while($row=mysqli_fetch_assoc($result)){
-    array_push($json,$row);
-  }
+    
 }else{
-    $null=array('Titolo'=>'A');
+   // echo json_encode(array('message' => "gdfgd" ));
+    $null=array('Nome'=>'A',
+                'Cognome'=>'A',
+                'Data_Nascita'=>'A',
+                'Codice_Fiscale'=>'A',
+                'Mail'=>'A',
+                'Password'=>'A');
     array_push($json,$null);
+
 }
 echo json_encode($json);
 ?>
