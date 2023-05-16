@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Your Library</title>
+<title>New Playlist</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +39,8 @@
 
           <li>
             <a href="Library.php">
-              <span class="fa fas fa-book Scolor"></span>
-              <span class="Scolor">Your Library</span>
+              <span class="fa fas fa-book "></span>
+              <span>Your Library</span>
             </a>
           </li>
         </ul>
@@ -50,8 +50,8 @@
         <ul>
           <li>
             <a href="Library.php">
-              <span class="fa fas fa-plus-square"></span>
-              <span>Create Playlist</span>
+              <span class="fa fas fa-plus-square Scolor"></span>
+              <span class="Scolor">Create Playlist</span>
             </a>
           </li>
 
@@ -80,20 +80,12 @@
                 </a>
             </div>
       </div>
-      <h1 class="title"> La tua Libreria</h1>
-      <div class="container" id="container1">
-        <div class=" musicGroup add" onclick="NewPlaylist();">
-          <h2>NEW</h2>
-        </div>
-      </div>
-            <!--<div class="musicGroup first1"><h2>RAP</h2></div>
-            <div class="musicGroup second1"><h2>HIP POP</h2></div>
-            <div class="musicGroup third1"><h2>POP</h2></div>
-            <div class="musicGroup fourth1"><h2>AFRO</h2></div>-->
-            
-      <div class="favoriteCont">
-        <div class="musicGroup favorite "><h2>Preferiti</h2></div>
-      </div>
+     <form id="NewPlaylistForm">
+        <input type="text"id="TitoloPlaylist" placeholder="Inserire il titolo">
+        <input type="text"id="DescrizionePlaylist" placeholder="Inserire la descrizione">
+        <input type="file" id="FotoPlaylist">
+        <button type="submit" class="button1">Crea Playlist</button>
+     </form>
       <script type="text/javascript" src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"

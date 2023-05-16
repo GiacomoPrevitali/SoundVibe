@@ -1,5 +1,6 @@
 var Id;
-
+var Nome;
+var Cognome;
 function changeImage() {
     var image = document.getElementById("play-pause");
     if (image.src.match("./Foto/Play_Icon.png")) {
@@ -35,6 +36,8 @@ function prova(){
         if(data.result==1){
           document.getElementById("AccountName").innerHTML=data.payload.Nome;
           Id=data.payload.Id;
+          Nome=data.payload.Nome;
+          Cognome=data.payload.Cognome;
           console.log(Id);
           AddPlaylist();
         }else{
@@ -149,7 +152,9 @@ function AddPlaylist(){
   })
 }
 
-
+function NewPlaylist(){
+  window.location.href="newPlaylist.php";
+}
 function GoTo(IdP, IdU){
   alert(IdP+" "+IdU);
 
@@ -178,4 +183,60 @@ function GoTo(IdP, IdU){
 
 function AddSong(data){
  document.getElementById("table-container").innerHTML="ciao";
+}
+
+$(document).ready(function() {
+  document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert(Id);
+    $.ajax({    
+      url: "ajax/AddPlaylist.php",      
+      type: "POST",       
+      dataType: "json",  
+      //contentType: "application/json; charset=utf-8",  
+      data: {
+        Nome: Nome,
+        Cognome: Cognome,
+        Id: Id,
+        NomePl: document.getElementById("TitoloPlaylist").value,
+        DescrPl: document.getElementById("DescrizionePlaylist").value,
+        FotoPl: document.getElementById("FotoPlaylist").value,
+
+      },  
+      success: function(data){ 
+       console.log(data);
+       AddPhoto();
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        alert(xhr.status);
+        alert(thrownError);
+      }
+      
+    });
+  })
+});
+
+
+function AddPhoto() {
+  $.ajax({    
+    url: "ajax/upload.php",      
+    type: "POST",       
+    dataType: "json",  
+    //contentType: "application/json; charset=utf-8",  
+    data: {
+      Id: Id,
+      my_image: document.getElementById("FotoPlaylist").value,
+
+    },  
+    success: function(data){ 
+     console.log(data);
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(xhr.status);
+      alert(thrownError);
+    }
+    
+  });
 }
