@@ -1,22 +1,14 @@
-<?php
- session_start();
- if (isset($_SESSION['Nome'])){
- }else{
-      header("Location: Login.php");
- }
-?>
 <!DOCTYPE html>
 <head>
 <title>Search</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" />
-        <script type="text/javascript" src="script.js"></script>
+        <!--<script type="text/javascript" src="script.js"></script>-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  
 </head> 
-<body>
-<body>
+<body onload="getTokenFromLocalStorage();">
 <!-- modifica, elimina, scarica pdf -->
     <div class="sidebar">
       <div class="logo">
@@ -79,7 +71,7 @@
         <div class="butLog">
                 <a href="#">
                   <!--<button type="button" class="button1">Sign Up</button>-->
-                  <h4 class="link AccountName" ><?php echo $_SESSION['Nome']; ?></h4>
+                  <h4 class="link AccountName" id="AccountName"></h4>
                 </a>
              
                 <a href="destroy.php">
@@ -117,11 +109,12 @@
      
       </div>
     </div>
-
+    
     <script
       src="https://kit.fontawesome.com/23cecef777.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </body>
 </html>

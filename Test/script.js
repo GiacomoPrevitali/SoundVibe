@@ -14,32 +14,35 @@ function prova(){
 }
   function saveTokenToLocalStorage(token) {
     localStorage.setItem('jwtToken', token);
-   // alert("e fin qui"+token);
   }
-
+ function FPlaylist(){
+  getTokenFromLocalStorage();
+ }
   // Recupera il token JWT dal localStorage
   function getTokenFromLocalStorage() {
-   // alert("ciaofsdfsdfsdf");
     var token;
     token=localStorage.getItem('jwtToken');
-    if(token!=null){
     alert(token);
+    if(token!=null){
     $.ajax({
       url: "Ajax/Token-JWT.php",     
       type: "POST",       
       dataType: "json",  
-      //contentType: "application/json; charset=utf-8",  
       data: {
         Jwt: localStorage.getItem('jwtToken')
       },
       success: function(data){
-        console.log(data.payload.Id);
-        Id=data.payload.Id;
-        alert("IOIO"+Id);
-        document.getElementById("AccountName").innerHTML=data.payload.Nome;
-        AddPlaylist();
-       // localStorage.setItem('jwtToken', token);
-        //window.location.href="index.php";
+        if(data.result==1){
+          document.getElementById("AccountName").innerHTML=data.payload.Nome;
+          Id=data.payload.Id;
+          console.log(Id);
+          AddPlaylist();
+        }else{
+          alert("Token non valido");
+          window.location.href="login.php";
+        }
+        
+        localStorage.setItem('jwtToken', token);
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
@@ -51,17 +54,10 @@ function prova(){
     window.location.href="login.php";
   }    //return token;
   }
-
 // Rimuove il token JWT dal localStorage
   function removeTokenFromLocalStorage() {
   localStorage.removeItem('jwtToken');  
 }
-
-
-
-/*function GoPlaylist() {
- alert("ciao");
- }*/
 
  $(document).ready(function() {
   document.getElementById("Login-Form").addEventListener("submit", (e) => {
@@ -153,23 +149,22 @@ function AddPlaylist(){
   })
 }
 
-function GoTo(IdP,IdU){
-  
+
+function GoTo(IdP, IdU){
   alert(IdP+" "+IdU);
+
   $.ajax({
     url: "ajax/QuerySong.php",      
     type: "POST",       
     dataType: "json",  
     data: {
       IdP: IdP,
-      IdU: IdU,
+      IdU: IdU
     },
     success: function(data){
-      console.log(data);
-      alert(data);
-      document.getElementById("table").innerHTML+='<tr><td>"+data[i].Id+"</td><td>';
-      window.location.href="Playlist.php";
-        
+     console.log(data[0].Titolo);
+     AddSong(data);
+      window.location.href="playlist.php";
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
@@ -178,6 +173,9 @@ function GoTo(IdP,IdU){
       alert(thrownError);
     }
   })
-
 }
-  
+
+
+function AddSong(data){
+ document.getElementById("table-container").innerHTML="ciao";
+}

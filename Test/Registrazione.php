@@ -48,7 +48,7 @@
         $connection->query($sql);
          header("Location: Login.php");
         //$sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Playlist FOREIGN KEY (Id_Playlist) REFERENCES prova(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
-
+        //-----------------------------------------FARE insert brani preferiti come prima playlist--------------------------------
     }
     ?>
         <center>
