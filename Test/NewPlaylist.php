@@ -80,12 +80,6 @@
                 </a>
             </div>
       </div>
-     <form id="NewPlaylistForm">
-        <input type="text"id="TitoloPlaylist" placeholder="Inserire il titolo">
-        <input type="text"id="DescrizionePlaylist" placeholder="Inserire la descrizione">
-        <input type="file" id="FotoPlaylist">
-        <button type="submit" class="button1">Crea Playlist</button>
-     </form>
       <script type="text/javascript" src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"

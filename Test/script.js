@@ -1,24 +1,25 @@
 var Id;
 var Nome;
 var Cognome;
+var IdP;
+var IdU;
+var audio;
 function changeImage() {
+    audio=document.getElementById("SongPlay");
+   
     var image = document.getElementById("play-pause");
     if (image.src.match("./Foto/Play_Icon.png")) {
       image.src = "./Foto/Pause.ico";
+      audio.play();
     } else {
       image.src = "./Foto/Play_Icon.png";
+      audio.pause();
     }
   }
-
-function prova(){
-  alert("ciao");
-}
+//-------------------------TOKEN JWT-------------------------//
   function saveTokenToLocalStorage(token) {
     localStorage.setItem('jwtToken', token);
   }
- function FPlaylist(){
-  getTokenFromLocalStorage();
- }
   // Recupera il token JWT dal localStorage
   function getTokenFromLocalStorage() {
     var token;
@@ -59,9 +60,11 @@ function prova(){
   }
 // Rimuove il token JWT dal localStorage
   function removeTokenFromLocalStorage() {
-  localStorage.removeItem('jwtToken');  
+  localStorage.removeItem('jwtToken'); 
+  
+  window.location.href="login.php" 
 }
-
+//-------------------------LOGIN-------------------------//
  $(document).ready(function() {
   document.getElementById("Login-Form").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -92,9 +95,7 @@ function prova(){
               Password: data[0].Pass,
             },
             success: function(token){
-              console.log(token);
               saveTokenToLocalStorage(token);
-              console.log("ciao"+token);
               window.location.href="index.php";
             },
             error: function (data, xhr, ajaxOptions, thrownError) {
@@ -155,7 +156,120 @@ function AddPlaylist(){
 function NewPlaylist(){
   window.location.href="newPlaylist.php";
 }
-function GoTo(IdP, IdU){
+function FPlaylist(){
+  getTokenFromLocalStorage();
+  AddSong();
+  
+}
+function GoTo(IdP ,IdU){
+  alert(IdP+" "+IdU);
+  localStorage.setItem('IdP', IdP);
+  localStorage.setItem('IdU', IdU);
+  window.location.href="playlist.php";
+}
+function AddSong(){
+  IdP=token=localStorage.getItem('IdP');
+  IdU=token=localStorage.getItem('IdU');
+  alert(IdP+" "+IdU);
+
+  $.ajax({
+    url: "ajax/QuerySong.php",      
+    type: "POST",       
+    dataType: "json",  
+    data: {
+      IdP: IdP,
+      IdU: IdU
+    },
+    success: function(data){
+     console.log(data[0].Titolo);
+     i=0;
+     $.each(data, function (key, value) {
+      j=i+1;
+     document.getElementById("table").innerHTML+='<tr onclick="PlayMusic('+data[i].Id+');" ><td>'+j+'</td><td>'+data[i].Titolo+'</td><td>'+data[i].Artista+'</td><td>'+data[i].Album+'</td><td>'+data[i].Durata+'</td><td>'+data[i].Data_Aggiunta+'</td></tr>';
+     i++;
+    })
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(Id);
+      alert(xhr.status);
+      alert(thrownError);
+    }
+  })
+
+}
+
+function PlayMusic(Id){
+  audio=document.getElementById("SongPlay"); 
+  alert(Id);
+  $.ajax({
+    url: "ajax/Play.php",      
+    type: "POST",       
+    dataType: "json",  
+    data: {
+      Id: Id,
+    },
+    success: function(data){
+     console.log(data[0].audio_url);
+      audio.src="Database/Audio/"+data[0].audio_url;
+      document.getElementById("play-pause").src="./Foto/Pause.ico";
+      audio.play();
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(Id);
+      alert(xhr.status);
+      alert(thrownError);
+    }
+  }) 
+}
+
+function Skip(){
+  $.ajax({
+    url: "ajax/Skip.php",      
+    type: "POST",       
+    dataType: "json",  
+    data: {
+      IdP: IdP,
+      IdU: IdU
+    },
+    success: function(data){
+     console.log(data);
+     const random=Math.floor(Math.random() * data.length);
+     console.log(random, data[random].Id_Song);
+
+     $.ajax({
+      url: "ajax/Play.php",      
+      type: "POST",       
+      dataType: "json",  
+      data: {
+        Id: data[random].Id_Song,
+      },
+      success: function(data){
+       console.log(data[0].audio_url);
+        audio.src="Database/Audio/"+data[0].audio_url;
+        document.getElementById("play-pause").src="./Foto/Pause.ico";
+        audio.play();
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        alert(Id);
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    }) 
+     
+
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(Id);
+      alert(xhr.status);
+      alert(thrownError);
+    }
+})
+}
+/*function GoTo(IdP, IdU){
   alert(IdP+" "+IdU);
 
   $.ajax({
@@ -178,34 +292,35 @@ function GoTo(IdP, IdU){
       alert(thrownError);
     }
   })
-}
+}*/
 
 
-function AddSong(data){
- document.getElementById("table-container").innerHTML="ciao";
-}
 
 $(document).ready(function() {
   document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
     e.preventDefault();
     alert(Id);
+   // var form =$('#NewPlaylistForm')[0];
+    //var dataPl = new FormData(form);
     $.ajax({    
       url: "ajax/AddPlaylist.php",      
       type: "POST",       
       dataType: "json",  
-      //contentType: "application/json; charset=utf-8",  
-      data: {
-        Nome: Nome,
-        Cognome: Cognome,
-        Id: Id,
-        NomePl: document.getElementById("TitoloPlaylist").value,
-        DescrPl: document.getElementById("DescrizionePlaylist").value,
-        FotoPl: document.getElementById("FotoPlaylist").value,
-
-      },  
+      //processData: false,
+      //contentType: false,
+      //cache: false,
+      data : {
+      Nome: Nome,
+      Cognome: Cognome,
+      Id: Id,
+      NomePl: document.getElementById("NomePl").value,
+      Descrizione: document.getElementById("DescrPl").value,
+      my_image: document.getElementById("my_image")
+      },
+ 
       success: function(data){ 
        console.log(data);
-       AddPhoto();
+       //AddPhoto();
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
@@ -238,5 +353,29 @@ function AddPhoto() {
       alert(thrownError);
     }
     
+  });
+}
+
+function Search() {
+  var inputElement = document.getElementById('searchbar'); // Assumi che il campo di input abbia l'id "inputField"
+  
+  inputElement.addEventListener('input', function() {
+    $.ajax({
+      url: "ajax/DynamicSearch.php",      
+      type: "POST",       
+      dataType: "json",  
+      data: {
+        valore: inputElement.value,
+      },
+      success: function(data){
+        console.log(data);
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        alert(Id);
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
   });
 }

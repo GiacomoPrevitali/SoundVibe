@@ -71,10 +71,10 @@
                   <h4 type="button" id="AccountName" class="button1"></h4>
                  <!-- <h4 class="link AccountName"></h4>-->
                 </a>
-             
-                <a href="destroy.php">
+
                     <h4  class="link logout" onclick="removeTokenFromLocalStorage();">Logout</h4>
-                </a>
+                  
+
             </div>
         </div>
       </div>

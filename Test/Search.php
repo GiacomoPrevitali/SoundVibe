@@ -65,7 +65,7 @@
       <div class="topbar">
         <!--Search Bar-->
         <div class="search-bar">
-          <input type="text" placeholder="Search for artists, songs, or podcasts" />
+          <input type="text" placeholder="Search a song" id="searchbar" onkeyup="Search();" />
           <img src="./Foto/lente.ico" alt="lente" width="40px"/>
         </div>
         <div class="butLog">
