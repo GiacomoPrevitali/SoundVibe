@@ -4,7 +4,7 @@ require_once('config.php');
 //if(isset($_POST['valore'])){
 //echo $_POST['IdU'];
 //echo $_POST['IdP'];
-$sql ='SELECT Titolo FROM Song  WHERE Titolo LIKE "%'.$_POST['valore'].'%"';
+$sql ='SELECT Titolo, Id FROM Song  WHERE Titolo LIKE "%'.$_POST['valore'].'%"';
 
 
 //$sql ='SELECT * FROM  38_0 WHERE Id_Playlist="'.$_POST['IdP'].'"';
@@ -18,7 +18,7 @@ if($result->num_rows>0){
     
 }else{
    // echo json_encode(array('message' => "gdfgd" ));
-    $null=array('Id'=>'A');
+    $null=array('Titolo'=>'A');
     array_push($json,$null);
 
 }

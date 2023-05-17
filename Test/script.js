@@ -24,7 +24,7 @@ function changeImage() {
   function getTokenFromLocalStorage() {
     var token;
     token=localStorage.getItem('jwtToken');
-    alert(token);
+    //alert(token);
     if(token!=null){
     $.ajax({
       url: "Ajax/Token-JWT.php",     
@@ -269,32 +269,6 @@ function Skip(){
     }
 })
 }
-/*function GoTo(IdP, IdU){
-  alert(IdP+" "+IdU);
-
-  $.ajax({
-    url: "ajax/QuerySong.php",      
-    type: "POST",       
-    dataType: "json",  
-    data: {
-      IdP: IdP,
-      IdU: IdU
-    },
-    success: function(data){
-     console.log(data[0].Titolo);
-     AddSong(data);
-      window.location.href="playlist.php";
-    },
-    error: function (data, xhr, ajaxOptions, thrownError) {
-      console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
-    }
-  })
-}*/
-
-
 
 $(document).ready(function() {
   document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
@@ -369,6 +343,29 @@ function Search() {
       },
       success: function(data){
         console.log(data);
+        var result;
+        if(data.length>4){
+          result=4;
+        }else{
+          result=data.length;
+        }
+        if(data.length>0){
+          if(data[0].Titolo=='A'){
+            document.getElementById("listResult").innerHTML="";
+          }else{
+            document.getElementById("listResult").innerHTML="";
+            for(var i=0; i<result; i++){
+              //alert(data[i].Titolo);
+              localStorage.setItem('Id_Song', data[i].Id);
+              document.getElementById("listResult").innerHTML+='<a href="Song.php"><li id="result1" class="list-group-item">    '+data[i].Titolo+'</li></a>';
+
+            }
+          }
+          if(inputElement.value==""){
+            document.getElementById("listResult").innerHTML="";
+          }
+         // document.getElementById("listResult").innerHTML="";
+        }
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
@@ -378,4 +375,61 @@ function Search() {
       }
     })
   });
+}
+
+function RiempiNome(){
+  getTokenFromLocalStorage();
+  var Id_Song=localStorage.getItem('Id_Song');
+  alert(Id_Song);
+  $.ajax({
+    url: "ajax/RiempiSong.php",      
+    type: "POST",       
+    dataType: "json",  
+    data: {
+      Id: Id_Song,
+    },
+    success: function(data){
+      console.log(data);
+      document.getElementById("SongTitle").innerHTML=data[0].Titolo;
+      document.getElementById("SongCont").style.backgroundImage="url(./Database/Foto/"+data[0].Immagine+")";
+      document.getElementById("SongCont").style.backgroundSize="cover";
+      //document.getElementById("Titolo").innerHTML=data[0].Titolo;
+     document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td></tr>';
+    
+     $.ajax({
+      url: "ajax/RiempiSong.php",      
+      type: "POST",       
+      dataType: "json",  
+      data: {
+        Id: Id_Song,
+      },
+      success: function(data){
+        console.log(data);
+        document.getElementById("SongTitle").innerHTML=data[0].Titolo;
+        document.getElementById("SongCont").style.backgroundImage="url(./Database/Foto/"+data[0].Immagine+")";
+        document.getElementById("SongCont").style.backgroundSize="cover";
+        //document.getElementById("Titolo").innerHTML=data[0].Titolo;
+       document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td></tr>';
+      
+      
+      //------------------------------------fare aggiunta canzone a playlist
+      
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        alert(Id);
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    })
+    
+    
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      alert(Id);
+      alert(xhr.status);
+      alert(thrownError);
+    }
+  })
 }

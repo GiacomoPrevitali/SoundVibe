@@ -196,7 +196,25 @@
     background-color: #f2f2f2;
     
   }
-  
+  .resultSearch{
+    display: flex;
+    
+    align-items: center;
+    position: fixed;
+    padding-top: 50px;
+    height: 50px;
+    top: 20px;
+    left: 10%;
+    right: 0;
+    margin: 0 auto;
+    width: 30%;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+  }
+
+  ul{
+    list-style-type: none;
+  }
   .search-bar input[type="text"] {
     border: none;
     outline: none;
@@ -442,4 +460,15 @@
 .Song{
   position: relative;
   top: 100%;
+}
+
+.TableSong{
+  width: 50%;
+}
+.pref{
+  position: relative;
+  top: 40%;
+  left: -auto;
+  width: 100px;
+  height: 100px;
 }
