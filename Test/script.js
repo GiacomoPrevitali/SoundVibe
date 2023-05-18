@@ -40,6 +40,7 @@ function changeImage() {
           Nome=data.payload.Nome;
           Cognome=data.payload.Cognome;
           console.log(Id);
+          localStorage.setItem('IdUtente', Id);
           AddPlaylist();
         }else{
           alert("Token non valido");
@@ -134,9 +135,14 @@ function AddPlaylist(){
       $.each(data, function (key, value) {
        
         //data[i].Id,Id
+        if(data[i].Titolo=="Preferiti"){
         //document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
+        document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
+        
+      }else{
         document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
-        //alert(data[i].Id);
+        
+      }
         i++;
       })
     }else{
@@ -395,24 +401,20 @@ function RiempiNome(){
       document.getElementById("SongCont").style.backgroundSize="cover";
       //document.getElementById("Titolo").innerHTML=data[0].Titolo;
      document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td></tr>';
-    
+    alert(Id);
      $.ajax({
-      url: "ajax/RiempiSong.php",      
+      url: "ajax/allPlaylist.php",      
       type: "POST",       
       dataType: "json",  
       data: {
-        Id: Id_Song,
+        Id: Id,
       },
       success: function(data){
         console.log(data);
-        document.getElementById("SongTitle").innerHTML=data[0].Titolo;
-        document.getElementById("SongCont").style.backgroundImage="url(./Database/Foto/"+data[0].Immagine+")";
-        document.getElementById("SongCont").style.backgroundSize="cover";
-        //document.getElementById("Titolo").innerHTML=data[0].Titolo;
-       document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td></tr>';
-      
-      
-      //------------------------------------fare aggiunta canzone a playlist
+        for(var i=0; i<data.length; i++){
+          
+        document.getElementById("SelectPlaylist").innerHTML+='<option value="'+data[i].Id+'">'+data[i].Titolo+'</option>'; 
+        }
       
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
@@ -433,3 +435,34 @@ function RiempiNome(){
     }
   })
 }
+
+$(document).ready(function() {
+  document.getElementById("Like").addEventListener("click", (e) => {
+    var Id_Song=localStorage.getItem('Id_Song');
+    var IdU=localStorage.getItem('IdUtente');
+    alert(IdU);
+    e.preventDefault();
+      $.ajax({    
+        url: "ajax/AddOnPlaylist.php",      
+        type: "POST",       
+        dataType: "json",  
+        //contentType: "application/json; charset=utf-8",  
+        data: {
+          IdU: IdU,
+          IdS: Id_Song,
+          IdP: document.getElementById("SelectPlaylist").value,
+        },  
+        success: function(data){ 
+        console.log(data); 
+        },
+        error: function (data, xhr, ajaxOptions, thrownError) {
+          console.log(data)
+          alert(xhr.status);
+          alert(thrownError);
+        }
+        
+      });
+  });
+});
+
+

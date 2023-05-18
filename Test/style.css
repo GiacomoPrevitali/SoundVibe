@@ -415,6 +415,9 @@
     width: 90%;
     background: linear-gradient(#9198e5,#bb5757 );
   }
+  .favoriteInd{
+    background: linear-gradient(#9198e5,#bb5757 );
+  }
 
 
   .FavTable{

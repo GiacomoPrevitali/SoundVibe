@@ -42,10 +42,13 @@
         $connection->query($sql);
         $sql='CREATE TABLE '.$Id.'_0 (Id INT NOT NULL AUTO_INCREMENT , Id_Playlist INT NOT NULL , Id_Song INT NOT NULL , Data_Aggiunta DATE NOT NULL ,PRIMARY KEY (Id))';
         $connection->query($sql);
-        $sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Playlist FOREIGN KEY (Id_Playlist) REFERENCES '.$Id.'_2(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
+        $sql ='INSERT INTO '.$Id.'_2 (Id,Titolo,Immagine, Descrizione, Autore) VALUES (NULL,"Preferiti"," "," "," ")';
         $connection->query($sql);
-        $sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Song FOREIGN KEY (Id_Song) REFERENCES song(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
-        $connection->query($sql);
+        //$connection->query($sql);
+       // $sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Playlist FOREIGN KEY (Id_Playlist) REFERENCES '.$Id.'_2(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
+        //$connection->query($sql);
+        //$sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Song FOREIGN KEY (Id_Song) REFERENCES song(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
+        //$connection->query($sql);
          header("Location: Login.php");
         //$sql='ALTER TABLE '.$Id.'_0 ADD CONSTRAINT Id_Playlist FOREIGN KEY (Id_Playlist) REFERENCES prova(Id) ON DELETE RESTRICT ON UPDATE RESTRICT';
         //-----------------------------------------FARE insert brani preferiti come prima playlist--------------------------------
