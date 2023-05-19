@@ -137,7 +137,7 @@ function AddPlaylist(){
         //data[i].Id,Id
         if(data[i].Titolo=="Preferiti"){
         //document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
-        document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
+        //document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         
       }else{
         document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
@@ -187,13 +187,17 @@ function AddSong(){
       IdU: IdU
     },
     success: function(data){
+      if(data[0].Id!="A"){
+    alert(data.length)
      console.log(data[0].Titolo);
      i=0;
      $.each(data, function (key, value) {
       j=i+1;
      document.getElementById("table").innerHTML+='<tr onclick="PlayMusic('+data[i].Id+');" ><td>'+j+'</td><td>'+data[i].Titolo+'</td><td>'+data[i].Artista+'</td><td>'+data[i].Album+'</td><td>'+data[i].Durata+'</td><td>'+data[i].Data_Aggiunta+'</td></tr>';
      i++;
+     
     })
+    }
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
@@ -216,8 +220,12 @@ function PlayMusic(Id){
       Id: Id,
     },
     success: function(data){
-     console.log(data[0].audio_url);
-      audio.src="Database/Audio/"+data[0].audio_url;
+      audio=document.getElementById("SongPlay");
+      document.getElementById("FotoSong").hidden=false;
+      document.getElementById("FotoSong").src="./Database/Foto/"+data[0].Immagine;
+      console.log(data[0].audio_url);
+      document.getElementById("SongPlay").src="Database/Audio/"+data[0].audio_url;
+      console.log
       document.getElementById("play-pause").src="./Foto/Pause.ico";
       audio.play();
     },
@@ -465,4 +473,16 @@ $(document).ready(function() {
   });
 });
 
+function LikedPage(){
+  getTokenFromLocalStorage();
+  localStorage.setItem('IdP', 1);
+  AddSong();
+}
+
+
+$(document).ready(function() {
+  document.getElementById("LikeSongPatt").addEventListener("click", (e) => {
+    window.location.href = "Liked.php";
+  });
+});
 

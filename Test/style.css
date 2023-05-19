@@ -385,7 +385,7 @@
     background-color: #181818;
   }
 
-  .Music img{
+  .Music .logo{
     width: 40px;
     height: 40px;
     background-color: #ccc;
@@ -474,4 +474,11 @@
   left: -auto;
   width: 100px;
   height: 100px;
+}
+
+ .sidebar .fotoSogn{
+  position: fixed;
+  width: 14.5%;
+  bottom: 80px;
+  left: 0px;
 }
