@@ -116,6 +116,18 @@
     cursor: pointer;
   }
  
+  .butLogInd {
+    position: absolute;
+    left: 85%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+    text-decoration: none;
+    
+  }
+
+
   .butLog {
     position: absolute;
     left: 78%;
@@ -126,7 +138,7 @@
     text-decoration: none;
     
   }
-  .butLog h4{
+  .butLog h4, .butLogInd h4{
     margin-right: 10px;
     color: #181818;
     text-align: center;
@@ -159,9 +171,9 @@
 
    .container .musicGroup .musicGroup1 {
     
-    min-width: 140px;
+    min-width: 300px;
     width: 12%;
-    padding: 15px;
+    padding: 10px;
     background-color: #181818;
     border-radius: 6px;
     cursor: pointer;
@@ -490,3 +502,27 @@
 .bucket{
   width: 30px;
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: cornflowerblue; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: cornflowerblue; 
+}
+
+
+

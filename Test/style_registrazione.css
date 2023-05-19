@@ -10,7 +10,7 @@ body{
 }
 Input::placeholder {
     color: white;
-    opacity: 1; /* Firefox */
+    opacity: 1; 
   }
 .square {
 
@@ -54,11 +54,10 @@ Input::placeholder {
     width: 160px;
     position: bottom;
     position: relative;
-    bottom: -350px;
+    bottom: -100px;
 	
   }
 
-  
 
 
 

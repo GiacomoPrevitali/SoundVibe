@@ -45,7 +45,7 @@
       <div class="navigation">
         <ul>
           <li>
-            <a href="#">
+            <a href="Newplaylist.php">
               <span class="fa fas fa-plus-square"></span>
               <span>Create Playlist</span>
             </a>
@@ -74,14 +74,14 @@
           <input type="text" placeholder="Search a song" id="searchbar" onkeyup="Search();" />
           <img src="./Foto/lente.ico" alt="lente" width="40px"/>
         </div>
-        <div class="butLog">
+        <div class="butLogInd">
                 <a href="#">
                   <!--<button type="button" class="button1">Sign Up</button>-->
                   <h4 class="link AccountName" id="AccountName"></h4>
                 </a>
              
                 <a href="destroy.php">
-                  <h4 class="link logout">Logout</h4>
+                  <h4 class="link logout" onclick="removeTokenFromLocalStorage();">Logout</h4>
                 </a>
             </div>
       </div>

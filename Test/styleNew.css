@@ -1,0 +1,28 @@
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Stile quando si passa sopra l'input con il cursore */
+  input[type="text"]:hover {
+    border-color: #888;
+  }
+  
+  /* Stile quando l'input ha il focus */
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #555;
+    box-shadow: 0 0 5px #aaa;
+  }
+  
+  /* Stile quando l'input è disabilitato */
+  input[type="text"]:disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+  }
+
+

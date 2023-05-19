@@ -571,3 +571,38 @@ function DeleteSong(IdDel){
     
   });
 }
+
+
+
+$(document).ready(function() {
+  document.getElementById("Registrazione").addEventListener("submit", (e) => {
+    $.ajax({    
+      url: "ajax/AddUser.php",      
+      type: "POST",       
+      dataType: "json",  
+
+      data : {
+        Nome: document.getElementById("NomeR").value,
+        Cognome: document.getElementById("CognomeR").value,
+        Codice_Fiscale: document.getElementById("CfR").value,
+        Mail: document.getElementById("MailR").value,
+        Password: document.getElementById("PasswordR").value,
+        Data_Nascita: document.getElementById("DataNR").value,
+
+      },
+ 
+      success: function(data){ 
+       console.log(data);
+       //AddPhoto();
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        //alert(xhr.status);
+        //alert(thrownError);
+      }
+      
+    });
+  })
+});
+
+

@@ -46,7 +46,7 @@
       <div class="navigation">
         <ul>
           <li>
-            <a href="Library.php">
+            <a href="NewPlaylist.php">
               <span class="fa fas fa-plus-square"></span>
               <span>Create Playlist</span>
             </a>
