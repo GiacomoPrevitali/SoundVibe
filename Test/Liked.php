@@ -86,7 +86,8 @@
                 <td>Artista</td>
                 <td>Album</td>
                 <td>Durata</td>
-                <td>Data di Aggiunta</td>                  
+                <td>Data di Uscita</td>
+                <td>Elimina</td>                  
               </tr>
           </thead>
         </table>

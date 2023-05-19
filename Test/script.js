@@ -24,7 +24,6 @@ function changeImage() {
   function getTokenFromLocalStorage() {
     var token;
     token=localStorage.getItem('jwtToken');
-    //alert(token);
     if(token!=null){
     $.ajax({
       url: "Ajax/Token-JWT.php",     
@@ -43,7 +42,7 @@ function changeImage() {
           localStorage.setItem('IdUtente', Id);
           AddPlaylist();
         }else{
-          alert("Token non valido");
+          //alert("Token non valido");
           window.location.href="login.php";
         }
         
@@ -51,8 +50,8 @@ function changeImage() {
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        alert(xhr.status);
-        alert(thrownError);
+        //alert(xhr.status);
+        //alert(thrownError);
       }
     })
   }else{
@@ -80,7 +79,6 @@ function changeImage() {
         },  
         success: function(data){ 
           if(data[0].Nome!='A'){
-            //alert("Id "+data[0].Id);
           $.ajax({
             url: "Token-JWT/jwt.php",      
             type: "POST",       
@@ -101,19 +99,19 @@ function changeImage() {
             },
             error: function (data, xhr, ajaxOptions, thrownError) {
               console.log(data)
-              alert(xhr.status);
-              alert(thrownError);
+              //alert(xhr.status);
+              //alert(thrownError);
             }
           })
         }else{
-          alert("Mail o Password errata");
+          //alert("Mail o Password errata");
           //<div class="alert alert-danger my-4">Credenziali sbagliate</div>
         }  
         },
         error: function (data, xhr, ajaxOptions, thrownError) {
           console.log(data)
-          alert(xhr.status);
-          alert(thrownError);
+          //alert(xhr.status);
+          //alert(thrownError);
         }
         
       });
@@ -140,8 +138,10 @@ function AddPlaylist(){
         //document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         
       }else{
-        document.getElementById("container1").innerHTML+='<div class="musicGroup first1 musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
-        
+        document.getElementById("container1").innerHTML+='<div class="musicGroup musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
+        //alert(data[i].Immagine);
+        document.getElementById("playlist").style.backgroundImage="url(./Database/Foto/"+data[i].Immagine+")";
+        document.getElementById("playlist").style.backgroundSize="cover";
       }
         i++;
       })
@@ -152,9 +152,9 @@ function AddPlaylist(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(Id);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
   })
 }
@@ -168,7 +168,7 @@ function FPlaylist(){
   
 }
 function GoTo(IdP ,IdU){
-  alert(IdP+" "+IdU);
+  //alert(IdP+" "+IdU);
   localStorage.setItem('IdP', IdP);
   localStorage.setItem('IdU', IdU);
   window.location.href="playlist.php";
@@ -176,7 +176,7 @@ function GoTo(IdP ,IdU){
 function AddSong(){
   IdP=token=localStorage.getItem('IdP');
   IdU=token=localStorage.getItem('IdU');
-  alert(IdP+" "+IdU);
+  //alert(IdP+" "+IdU);
 
   $.ajax({
     url: "ajax/QuerySong.php",      
@@ -188,12 +188,12 @@ function AddSong(){
     },
     success: function(data){
       if(data[0].Id!="A"){
-    alert(data.length)
+    //alert(data.length)
      console.log(data[0].Titolo);
      i=0;
      $.each(data, function (key, value) {
       j=i+1;
-     document.getElementById("table").innerHTML+='<tr onclick="PlayMusic('+data[i].Id+');" ><td>'+j+'</td><td>'+data[i].Titolo+'</td><td>'+data[i].Artista+'</td><td>'+data[i].Album+'</td><td>'+data[i].Durata+'</td><td>'+data[i].Data_Aggiunta+'</td></tr>';
+     document.getElementById("table").innerHTML+='<tr onclick="PlayMusic('+data[i].Id+');" ><td>'+j+'</td><td>'+data[i].Titolo+'</td><td>'+data[i].Artista+'</td><td>'+data[i].Album+'</td><td>'+data[i].Durata+'</td><td>'+data[i].Data_Aggiunta+'</td><td><img src="./Foto/cestino.jpg" class="bucket" onclick=DeleteSong('+data[i].Id_Song+');></a></td></tr>';
      i++;
      
     })
@@ -201,9 +201,9 @@ function AddSong(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(Id);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
   })
 
@@ -211,7 +211,7 @@ function AddSong(){
 
 function PlayMusic(Id){
   audio=document.getElementById("SongPlay"); 
-  alert(Id);
+  //alert(Id);
   $.ajax({
     url: "ajax/Play.php",      
     type: "POST",       
@@ -231,9 +231,9 @@ function PlayMusic(Id){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(Id);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
   }) 
 }
@@ -267,9 +267,9 @@ function Skip(){
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        alert(Id);
-        alert(xhr.status);
-        alert(thrownError);
+        //alert(Id);
+        //alert(xhr.status);
+        //alert(thrownError);
       }
     }) 
      
@@ -277,9 +277,9 @@ function Skip(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(Id);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
 })
 }
@@ -287,7 +287,7 @@ function Skip(){
 $(document).ready(function() {
   document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    alert(Id);
+    //alert(Id);
    // var form =$('#NewPlaylistForm')[0];
     //var dataPl = new FormData(form);
     $.ajax({    
@@ -312,8 +312,8 @@ $(document).ready(function() {
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        alert(xhr.status);
-        alert(thrownError);
+        //alert(xhr.status);
+        //alert(thrownError);
       }
       
     });
@@ -337,8 +337,8 @@ function AddPhoto() {
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
     
   });
@@ -383,9 +383,9 @@ function Search() {
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        alert(Id);
-        alert(xhr.status);
-        alert(thrownError);
+        //alert(Id);
+        //alert(xhr.status);
+        //alert(thrownError);
       }
     })
   });
@@ -394,7 +394,7 @@ function Search() {
 function RiempiNome(){
   getTokenFromLocalStorage();
   var Id_Song=localStorage.getItem('Id_Song');
-  alert(Id_Song);
+  //(Id_Song);
   $.ajax({
     url: "ajax/RiempiSong.php",      
     type: "POST",       
@@ -408,8 +408,8 @@ function RiempiNome(){
       document.getElementById("SongCont").style.backgroundImage="url(./Database/Foto/"+data[0].Immagine+")";
       document.getElementById("SongCont").style.backgroundSize="cover";
       //document.getElementById("Titolo").innerHTML=data[0].Titolo;
-     document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td></tr>';
-    alert(Id);
+     document.getElementById("TableSong").innerHTML+='<tr><td>'+data[0].Titolo+'</td><td>'+data[0].Artista+'</td><td>'+data[0].Album+'</td><td>'+data[0].Durata+'</td><td>'+data[0].Data_Aggiunta+'</td><td>Elimina</td></tr>';
+    //alert(Id);
      $.ajax({
       url: "ajax/allPlaylist.php",      
       type: "POST",       
@@ -427,9 +427,9 @@ function RiempiNome(){
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        alert(Id);
-        alert(xhr.status);
-        alert(thrownError);
+        //alert(Id);
+        //alert(xhr.status);
+        //alert(thrownError);
       }
     })
     
@@ -437,9 +437,9 @@ function RiempiNome(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      alert(Id);
-      alert(xhr.status);
-      alert(thrownError);
+      //alert(Id);
+      //alert(xhr.status);
+      //alert(thrownError);
     }
   })
 }
@@ -448,7 +448,7 @@ $(document).ready(function() {
   document.getElementById("Like").addEventListener("click", (e) => {
     var Id_Song=localStorage.getItem('Id_Song');
     var IdU=localStorage.getItem('IdUtente');
-    alert(IdU);
+    //alert(IdU);
     e.preventDefault();
       $.ajax({    
         url: "ajax/AddOnPlaylist.php",      
@@ -465,8 +465,8 @@ $(document).ready(function() {
         },
         error: function (data, xhr, ajaxOptions, thrownError) {
           console.log(data)
-          alert(xhr.status);
-          alert(thrownError);
+          //alert(xhr.status);
+          //alert(thrownError);
         }
         
       });
@@ -486,3 +486,88 @@ $(document).ready(function() {
   });
 });
 
+
+$(document).ready(function() {
+  document.getElementById("AddPlaylist").addEventListener("submit", (e) => {
+    //e.preventDefault();
+    $.ajax({    
+      url: "ajax/AddPlaylist.php",      
+      type: "POST",       
+      dataType: "json",  
+
+      data : {
+      Nome: Nome,
+      Cognome: Cognome,
+      Id: Id,
+      TitoloPlaylist: document.getElementById("TitoloPlaylist").value,
+      DescrizionePlaylist: document.getElementById("DescrizionePlaylist").value,
+      ImmaginePlaylist: document.getElementById("ImmaginePlaylist").value,
+      },
+ 
+      success: function(data){ 
+       console.log(data);
+       //AddPhoto();
+      },
+      error: function (data, xhr, ajaxOptions, thrownError) {
+        console.log(data)
+        //alert(xhr.status);
+        //alert(thrownError);
+      }
+      
+    });
+  })
+});
+
+
+
+function DeletePlaylist(){
+  $.ajax({    
+    url: "ajax/DeletePlaylist.php",      
+    type: "POST",       
+    dataType: "json",  
+
+    data : {
+    IdP : IdP,
+    IdU: IdU,
+    },
+
+    success: function(data){ 
+     console.log(data);
+     window.location.href = "index.php";
+     //AddPhoto();
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      //alert(xhr.status);
+      //alert(thrownError);
+    }
+    
+  });
+}
+
+function DeleteSong(IdDel){
+  alert(IdDel);
+  $.ajax({    
+    url: "ajax/DeleteSong.php",      
+    type: "POST",       
+    dataType: "json",  
+
+    data : {
+    IdS : IdDel,
+    IdP : IdP,
+    IdU: IdU,
+    },
+
+    success: function(data){ 
+     console.log(data);
+     window.location.href = "index.php";
+     //AddPhoto();
+    },
+    error: function (data, xhr, ajaxOptions, thrownError) {
+      console.log(data)
+      //alert(xhr.status);
+      //alert(thrownError);
+    }
+    
+  });
+}

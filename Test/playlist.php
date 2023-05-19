@@ -8,8 +8,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
+        
     <title>WORK</title>
 </head>
 <body onload="FPlaylist();"id="PlaylistPage" >
@@ -68,7 +67,9 @@
       <div class="topbar">
         <div class="navbar">
            <div class="butLog">
+           <h4 type="button" id="DeletePlaylist" class="button1 logout" onclick="DeletePlaylist();">Elimina Playlist</h4>
                 <a href="#">
+                  
                   <h4 type="button" id="AccountName" class="button1"></h4>
                  <!-- <h4 class="link AccountName"></h4>-->
                 </a>
@@ -88,7 +89,8 @@
                <td>Artista</td>
                <td>Album</td>
                <td>Durata</td>
-               <td>Data di Aggiunta</td>                  
+               <td>Data di Uscita</td> 
+               <td>Elimina</td>                 
             </tr>
         </thead>
       </table>
@@ -100,6 +102,7 @@
           <img id="play-pause" onclick="changeImage()" src="./Foto/Play_Icon.png" class="logo">
           <img src="./Foto/skip.ico" id="Skip" onclick="Skip();" class="logo">
       </div>
+
 
     <script type="text/javascript" src="script.js"></script>
     <script

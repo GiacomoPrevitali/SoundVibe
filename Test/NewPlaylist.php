@@ -80,6 +80,12 @@
                 </a>
             </div>
       </div>
+      <form id="AddPlaylist">
+      <input type="text" id="TitoloPlaylist" required>
+      <input type="text" id="DescrizionePlaylist" required>
+      <input type="file" id="ImmaginePlaylist" required>
+      <button type="submit" id="CreaPlaylist">Crea</button>
+      </form>
       <script type="text/javascript" src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/23cecef777.js"

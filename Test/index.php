@@ -8,7 +8,6 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
 </head> 
 <body onload="getTokenFromLocalStorage();">
 <!--<script>getTokenFromLocalStorage()</script>-->  
@@ -115,11 +114,6 @@
       </div>
         <hr>
       
-      <div class="Music">
-          <img src="./Foto/back.ico">
-          <img id="play-pause" onclick="changeImage()" src="./Foto/Play_Icon.png">
-          <img src="./Foto/skip.ico">
-      </div>
 
       
       <script type="text/javascript" src="script.js"></script>

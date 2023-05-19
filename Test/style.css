@@ -112,10 +112,13 @@
     width: max-content;
     
   }
+  h4:hover{
+    cursor: pointer;
+  }
  
   .butLog {
     position: absolute;
-    left: 85%;
+    left: 78%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -481,4 +484,9 @@
   width: 14.5%;
   bottom: 80px;
   left: 0px;
+}
+
+
+.bucket{
+  width: 30px;
 }
