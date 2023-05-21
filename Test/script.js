@@ -104,7 +104,7 @@ function changeImage() {
             }
           })
         }else{
-          //alert("Mail o Password errata");
+          alert("Mail o Password errata");
           //<div class="alert alert-danger my-4">Credenziali sbagliate</div>
         }  
         },
@@ -132,8 +132,7 @@ function AddPlaylist(){
       if(data[0].Titolo!=null){
       $.each(data, function (key, value) {
        
-        //data[i].Id,Id
-        if(data[i].Titolo=="Preferiti"){
+       if(data[i].Titolo=="Preferiti"){
         //document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
         //document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         
@@ -502,6 +501,7 @@ $(document).ready(function() {
       TitoloPlaylist: document.getElementById("TitoloPlaylist").value,
       DescrizionePlaylist: document.getElementById("DescrizionePlaylist").value,
       ImmaginePlaylist: document.getElementById("ImmaginePlaylist").value,
+      ImmaginePlaylist: document.getElementById("ImmaginePlaylist").tmp_name,
       },
  
       success: function(data){ 

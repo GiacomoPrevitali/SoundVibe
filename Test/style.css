@@ -524,5 +524,23 @@
   background: cornflowerblue; 
 }
 
-
+.CreaPlaylist{
+	width: 70%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background-color: #354152;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.CreaPlaylist:hover{
+	background: #4b5c74;
+}
 
