@@ -16,7 +16,6 @@ function changeImage() {
       audio.pause();
     }
   }
-//-------------------------TOKEN JWT-------------------------//
   function saveTokenToLocalStorage(token) {
     localStorage.setItem('jwtToken', token);
   }
@@ -137,10 +136,10 @@ function AddPlaylist(){
         //document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         
       }else{
-        document.getElementById("container1").innerHTML+='<div class="musicGroup musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
+        document.getElementById("container1").innerHTML+='<div class="musicGroup musicHome" id="playlist'+i+'" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         //alert(data[i].Immagine);
-        document.getElementById("playlist").style.backgroundImage="url(./Database/Foto/"+data[i].Immagine+")";
-        document.getElementById("playlist").style.backgroundSize="cover";
+        document.getElementById("playlist"+i).style.backgroundImage="url(./Database/Foto/"+data[i].Immagine+")";
+        document.getElementById("playlist"+i).style.backgroundSize="cover";
       }
         i++;
       })
@@ -259,6 +258,8 @@ function Skip(){
         Id: data[random].Id_Song,
       },
       success: function(data){
+        document.getElementById("FotoSong").hidden=false;
+        document.getElementById("FotoSong").src="./Database/Foto/"+data[0].Immagine;
        console.log(data[0].audio_url);
         audio.src="Database/Audio/"+data[0].audio_url;
         document.getElementById("play-pause").src="./Foto/Pause.ico";
@@ -286,16 +287,10 @@ function Skip(){
 $(document).ready(function() {
   document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    //alert(Id);
-   // var form =$('#NewPlaylistForm')[0];
-    //var dataPl = new FormData(form);
     $.ajax({    
       url: "ajax/AddPlaylist.php",      
       type: "POST",       
       dataType: "json",  
-      //processData: false,
-      //contentType: false,
-      //cache: false,
       data : {
       Nome: Nome,
       Cognome: Cognome,
@@ -501,17 +496,13 @@ $(document).ready(function() {
       TitoloPlaylist: document.getElementById("TitoloPlaylist").value,
       DescrizionePlaylist: document.getElementById("DescrizionePlaylist").value,
       ImmaginePlaylist: document.getElementById("ImmaginePlaylist").value,
-      ImmaginePlaylist: document.getElementById("ImmaginePlaylist").tmp_name,
       },
  
       success: function(data){ 
        console.log(data);
-       //AddPhoto();
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        //alert(xhr.status);
-        //alert(thrownError);
       }
       
     });
@@ -546,7 +537,7 @@ function DeletePlaylist(){
 }
 
 function DeleteSong(IdDel){
-  alert(IdDel);
+  //alert(IdDel);
   $.ajax({    
     url: "ajax/DeleteSong.php",      
     type: "POST",       
