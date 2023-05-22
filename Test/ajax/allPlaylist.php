@@ -1,10 +1,8 @@
 <?php
 //session_start();
 require_once('config.php');
-
-//echo $_POST['IdU'];
-//echo $_POST['IdP'];
-$sql ='SELECT * FROM '.$_POST['Id'].'_2';
+$Id=htmlspecialchars($_POST['Id'],ENT_QUOTES,'UTF-8');
+$sql ='SELECT * FROM '.$Id.'_2';
 //$sql ='SELECT * FROM '.$_POST['IdU'].'_0 JOIN song ON '.$_POST['IdU'].'_0.Id_Song = song.Id WHERE '.$_POST['IdU'].'_0.Id_Playlist='.$_POST['IdP'].'';
 //$sql ='SELECT * FROM  38_0 WHERE Id_Playlist="'.$_POST['IdP'].'"';
 //echo $_POST['Mail'];

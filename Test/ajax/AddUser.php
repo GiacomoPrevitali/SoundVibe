@@ -1,16 +1,21 @@
 <?php
      if(isset($_POST['Nome'])){
         require_once('config.php');
-       
+       $Nome=htmlspecialchars($_POST['Nome'],ENT_QUOTES,'UTF-8');
+       $Cognome=htmlspecialchars($_POST['Cognome'],ENT_QUOTES,'UTF-8');
+       $Data_Nascita=htmlspecialchars($_POST['Data_Nascita'],ENT_QUOTES,'UTF-8');
+       $Codice_Fiscale=htmlspecialchars($_POST['Codice_Fiscale'],ENT_QUOTES,'UTF-8');
+       $Mail=htmlspecialchars($_POST['Mail'],ENT_QUOTES,'UTF-8');
+       $Password=htmlspecialchars($_POST['Password'],ENT_QUOTES,'UTF-8');
             $connection=new mysqli($ip,$username,$password,$database);
             if ($connection->connect_error) {
                 die('C\'è stato un errore: ' . $connection->connect_error);
             }
         
-        $sql='INSERT INTO users (Id, Nome, Cognome, Data_Nascita, Codice_Fiscale, Mail, Pass) VALUES (NULL, "'.$_POST['Nome'].'", "'.$_POST['Cognome'].'", "'.$_POST['Data_Nascita'].'", "'.$_POST['Codice_Fiscale'].'", "'.$_POST['Mail'].'", "'.md5($_POST['Password']).'")';
+        $sql='INSERT INTO users (Id, Nome, Cognome, Data_Nascita, Codice_Fiscale, Mail, Pass) VALUES (NULL, "'.$Nome.'", "'.$Cognome.'", "'.$Data_Nascita.'", "'.$Codice_Fiscale.'", "'.$Mail.'", "'.md5($Password).'")';
         $connection->query($sql);
             //fare chiamata per ID utente
-        $sql='SELECT Id FROM users WHERE Mail="'.$_POST['Mail'].'"';
+        $sql='SELECT Id FROM users WHERE Mail="'.$Mail.'"';
         $result =$connection->query($sql);
         if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
