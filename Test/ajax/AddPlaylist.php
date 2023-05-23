@@ -7,9 +7,18 @@ $Immagine=htmlspecialchars($_POST['ImmaginePlaylist'],ENT_QUOTES,'UTF-8');
 $Descrizione=htmlspecialchars($_POST['DescrizionePlaylist'],ENT_QUOTES,'UTF-8');
 $Nome=htmlspecialchars($_POST['Nome'],ENT_QUOTES,'UTF-8');
 $Cognome=htmlspecialchars($_POST['Cognome'],ENT_QUOTES,'UTF-8');
-$sql ='INSERT INTO '.$Id.'_2 (Id,Titolo,Immagine, Descrizione, Autore) VALUES (NULL,"'.$Titolo.'","'.substr($Immagine, 11).'","'.$Descrizione.'","'.$Nome.''.$Cognome.'")';
+$Immagine=substr($Immagine, 12);
+$Utente=$Nome." ".$Cognome;
+$sql ='INSERT INTO playlist (Id, Id_Utente, Titolo, Immagine, Descrizione, Autore) VALUES (NULL,?,?,?,?,?)';
 
-$result =$connection->query($sql);
+
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("sssss", $Id, $Titolo, $Immagine ,$Descrizione,$Utente);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$connection->close();
+$stmt->close();
 $json=array();
 
     $null=array('Id'=>'A');

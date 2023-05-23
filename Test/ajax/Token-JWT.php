@@ -1,7 +1,6 @@
 <?php
 
-//function is_jwt_valid($jwt, $secret = 'secret') {
-	// split the jwt
+
 	
 	$secret = 'secret';
 	$jwt=$_REQUEST['Jwt'];

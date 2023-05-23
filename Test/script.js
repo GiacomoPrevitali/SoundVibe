@@ -132,7 +132,7 @@ function AddPlaylist(){
       $.each(data, function (key, value) {
        
        if(data[i].Titolo=="Preferiti"){
-        //document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
+        document.getElementById("table").innerHTML+="<tr><td>"+data[i].Id+"</td><td>"+data[i].Nome+"</td><td>"+data[i].DataU+"</td><td>"+data[i].PesoEffettivo+"</td><td>"+data[i].AltezzaIniziale+"</td><td>"+data[i].DistanzaVerticale+"</td><td>"+data[i].DistanzaOrizzontale+"</td><td>"+data[i].DistanzaAngolare+"</td><td>"+val1+"</td><td>"+Pesolimte  +"</td><td>"+IndiceSollevamento+"</td><td>"+freq+"</td><td>"+data[i].Prezzo+"€</td><td id=checkVal"+i+">"+val+"</td><td>Visualizza</td><td onclick='Update("+data[i].Id+")'>Modifica</td><td onclick='Delete("+data[i].Id+")'>Cancella</td></tr>";
         //document.getElementById("container1").innerHTML+='<div class="musicGroup favoriteInd musicHome" id="playlist" onclick="GoTo('+data[i].Id+',Id);"><div class="play"><span onclick="GoPlaylist()"; class="fa fa-play"></span></div><h2 id="pl1">'+data[i].Titolo+'</h2></div>';
         
       }else{
@@ -150,9 +150,6 @@ function AddPlaylist(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      //alert(Id);
-      //alert(xhr.status);
-      //alert(thrownError);
     }
   })
 }
@@ -174,7 +171,7 @@ function GoTo(IdP ,IdU){
 function AddSong(){
   IdP=token=localStorage.getItem('IdP');
   IdU=token=localStorage.getItem('IdU');
-  //alert(IdP+" "+IdU);
+  alert(IdP+" "+IdU);
 
   $.ajax({
     url: "ajax/QuerySong.php",      
@@ -229,9 +226,6 @@ function PlayMusic(Id){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      //alert(Id);
-      //alert(xhr.status);
-      //alert(thrownError);
     }
   }) 
 }
@@ -249,7 +243,6 @@ function Skip(){
      console.log(data);
      const random=Math.floor(Math.random() * data.length);
      console.log(random, data[random].Id_Song);
-
      $.ajax({
       url: "ajax/Play.php",      
       type: "POST",       
@@ -267,9 +260,6 @@ function Skip(){
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)
-        //alert(Id);
-        //alert(xhr.status);
-        //alert(thrownError);
       }
     }) 
      
@@ -277,15 +267,13 @@ function Skip(){
     },
     error: function (data, xhr, ajaxOptions, thrownError) {
       console.log(data)
-      //alert(Id);
-      //alert(xhr.status);
-      //alert(thrownError);
     }
 })
 }
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   document.getElementById("NewPlaylistForm").addEventListener("submit", (e) => {
+    alert("ciao");
     e.preventDefault();
     $.ajax({    
       url: "ajax/AddPlaylist.php",      
@@ -312,7 +300,7 @@ $(document).ready(function() {
       
     });
   })
-});
+});*/
 
 
 function AddPhoto() {
@@ -350,7 +338,7 @@ function Search() {
         valore: inputElement.value,
       },
       success: function(data){
-        console.log(data);
+        //console.log(data);
         var result;
         if(data.length>4){
           result=4;
@@ -483,7 +471,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   document.getElementById("AddPlaylist").addEventListener("submit", (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     $.ajax({    
       url: "ajax/AddPlaylist.php",      
       type: "POST",       
@@ -567,6 +555,7 @@ function DeleteSong(IdDel){
 
 $(document).ready(function() {
   document.getElementById("Registrazione").addEventListener("submit", (e) => {
+    e.preventDefault();
     $.ajax({    
       url: "ajax/AddUser.php",      
       type: "POST",       

@@ -2,14 +2,19 @@
 //session_start();
 require_once('config.php');
 
-//echo $_POST['IdU'];
-//echo $_POST['IdP'];
-$sql ='SELECT * FROM song WHERE Id="'.$_POST['Id'].'"';
-//$sql ='SELECT * FROM '.$_POST['IdU'].'_0 JOIN song ON '.$_POST['IdU'].'_0.Id_Song = song.Id WHERE '.$_POST['IdU'].'_0.Id_Playlist='.$_POST['IdP'].'';
-//$sql ='SELECT * FROM  38_0 WHERE Id_Playlist="'.$_POST['IdP'].'"';
-//echo $_POST['Mail'];
-$result =$connection->query($sql);
+$Id=htmlspecialchars($_POST['Id'],ENT_QUOTES,'UTF-8');
+
+$sql ='SELECT * FROM song WHERE Id=?';
+
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("s", $Id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$connection->close();
+$stmt->close();
 $json=array();
+
 if($result->num_rows>0){
     while($row=mysqli_fetch_assoc($result)){
         array_push($json,$row);
