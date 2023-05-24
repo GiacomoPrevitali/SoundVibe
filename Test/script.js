@@ -4,6 +4,7 @@ var Cognome;
 var IdP;
 var IdU;
 var audio;
+var nomeA;
 function changeImage() {
     audio=document.getElementById("SongPlay");
    
@@ -76,6 +77,7 @@ function changeImage() {
         },  
         success: function(data){ 
           if(data[0].Nome!='A'){
+            nomeA=data[0].Nome;
           $.ajax({
             url: "Token-JWT/jwt.php",      
             type: "POST",       
@@ -92,12 +94,18 @@ function changeImage() {
             },
             success: function(token){
               saveTokenToLocalStorage(token);
+              if(nomeA=='B'){
+                window.location.href="admin.php";
+              }else{
               window.location.href="index.php";
+              }
             },
             error: function (data, xhr, ajaxOptions, thrownError) {
               console.log(data)
             }
           })
+
+       
         }else{
           alert("Mail o Password errata");
           //<div class="alert alert-danger my-4">Credenziali sbagliate</div>
