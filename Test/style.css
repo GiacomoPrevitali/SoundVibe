@@ -483,13 +483,7 @@
 .TableSong{
   width: 50%;
 }
-.pref{
-  position: relative;
-  top: 40%;
-  left: -auto;
-  width: 100px;
-  height: 100px;
-}
+
 
  .sidebar .fotoSogn{
   position: fixed;
@@ -544,3 +538,88 @@
 	background: #4b5c74;
 }
 
+.emptyPlaylist{
+  position: relative;
+  left: 40%;
+}
+
+
+/* Stile generale del select */
+.select-container {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+}
+
+.select-container select {
+  appearance: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-container::before {
+  
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Stile al passaggio del mouse */
+.select-container:hover select {
+  background-color: #e6e6e6;
+}
+
+/* Stile al focus */
+.select-container select:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Stile dell'opzione selezionata */
+.select-container select option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Stile delle opzioni */
+.select-container select option {
+  padding: 10px;
+}
+
+
+
+.pref {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pref:hover {
+  background-color: #0056b3;
+}
+
+.pref:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.pref:active {
+  background-color: #003d80;
+}

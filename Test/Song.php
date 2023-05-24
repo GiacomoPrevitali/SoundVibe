@@ -91,10 +91,13 @@
             <table class="TableSong" id="TableSong">
               <tr><td>Titolo</td><td>Artista</td><td>Album</td><td>Durata</td><td>Data di Uscita</td></tr>
             </table>
+            <br>
+            <div class="select-container">
             <select id="SelectPlaylist">
               <option value="0" disabled selected>Playlist</option>
             </select>
-           <input type="button" value="Aggiungi alla Playlist" id="Like" class="pref">
+            </div>
+           <input type="button" value="Aggiungi" id="Like" class="pref">
         </div>
       </div>
         <hr>

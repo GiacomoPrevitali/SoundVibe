@@ -79,6 +79,8 @@
       </div>
         <h1 class="title"> Le tue Playlist</h1>
         <div class="container" id="container1"></div>
+        <p id="plVuote" class="emptyPlaylist"></p>
+        
       </div>
         <hr>
       

@@ -18,7 +18,7 @@
 <body>
 	<div class="main">  	
 			<div class="signup">
-                <form id="Login-Form" method="POST" >
+                <form id="Login-Form" method="POST" action="Login.php">
 					<label >Sign up</label>
 					<input type="email"     name="Mail"     id="Mail"     placeholder="Email"     required  pattern="[^ @]*@[^ @]*">
 					<input type="password"  name="Password" id="Password"    placeholder="Password"  required>
@@ -35,6 +35,3 @@
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-
-

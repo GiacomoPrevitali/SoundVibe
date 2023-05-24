@@ -8,6 +8,9 @@
        $Mail=htmlspecialchars($_POST['Mail'],ENT_QUOTES,'UTF-8');
        $Password=htmlspecialchars($_POST['Password'],ENT_QUOTES,'UTF-8');
        $passC=md5($Password);
+       if(filter_var($Mail, FILTER_VALIDATE_EMAIL)){
+
+       
             $connection=new mysqli($ip,$username,$password,$database);
             if ($connection->connect_error) {
                 die('C\'è stato un errore: ' . $connection->connect_error);
@@ -61,4 +64,12 @@
 
         echo json_encode($json);
    // }
+        }else{
+            $json=array();
+
+            $null=array('Id'=>'B');
+            array_push($json,$null);
+
+            echo json_encode($json);
+        }
     ?>

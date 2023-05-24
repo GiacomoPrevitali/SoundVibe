@@ -19,12 +19,7 @@ if($result->num_rows>0){
     }
     
 }else{
-    $null=array('Nome'=>'A',
-                'Cognome'=>'A',
-                'Data_Nascita'=>'A',
-                'Codice_Fiscale'=>'A',
-                'Mail'=>'A',
-                'Password'=>'A');
+    $null=array('Titolo'=>'A');
     array_push($json,$null);
 
 }
