@@ -28,7 +28,9 @@ if (!$conn) {
 
     	if (in_array($audio_ex_lc, $allowed_exs)) {
     		
-    		$new_audio_name = uniqid("audio-", true). '.'.$audio_ex_lc;
+  //  		$new_audio_name = uniqid("audio-", true). '.'.$audio_ex_lc;
+            $new_audio_name = uniqid("audio-", true). '.'.$audio_name;
+
     		$audio_upload_path = 'Database/Audio/'.$new_audio_name;
     		move_uploaded_file($tmp_name, $audio_upload_path);
 
@@ -54,6 +56,65 @@ if (!$conn) {
 
    // $conn->close();
 }
+
+
+if (isset($_FILES['my_image'])) {
+	
+    $sname = "localhost";
+    $uname = "SoundVibe_User";
+    $password = "1234";
+    $db_name = "soundvibe";
+
+    $conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
+	exit();
+}
+
+	echo "<pre>";
+	print_r($_FILES['my_image']);
+	echo "</pre>";
+
+	$img_name = $_FILES['my_image']['name'];
+	$img_size = $_FILES['my_image']['size'];
+	$tmp_name = $_FILES['my_image']['tmp_name'];
+	$error = $_FILES['my_image']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: index.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				//$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+                $new_img_name = uniqid("IMG-", true).'.'.$img_name;
+				$img_upload_path = 'Database/Foto/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
+				echo $new_img_name;
+				// Insert into Database
+				$sql='UPDATE song SET Immagine = "'.$new_img_name.'" WHERE Id = "'.$_SESSION['IdSong'].'"';
+				mysqli_query($conn, $sql);
+				//header("Location: view.php");
+			}else {
+				$em = "You can't upload files of this type";
+		       // header("Location: index.php?error=$em");
+			}
+		}
+	}else {
+		$em = "unknown error occurred!";
+	//	header("Location: index.php?error=$em");
+	}
+
+}
+
+
+
 if(isset($_POST['TitoloS'])){
 
     $sname = "localhost";
@@ -121,9 +182,8 @@ if(isset($_POST['TitoloS'])){
     </div>
         
     <div class="main-container">
-        <p>ciao</p>
     <?php
-    echo '<h3 class="Name"> Ciao, '. $_SESSION['IdSong'].'</h3>';?>
+    echo '<h3 class="Name"> Id: '. $_SESSION['IdSong'].'</h3>';?>
       <div class="Upload-audio"></div>
       <form 
            action="admin.php"
@@ -138,26 +198,29 @@ if(isset($_POST['TitoloS'])){
 	 	       value="Upload">
 	 </form>
 
-    <form action="admin.php"
-	       method="post">
-        <input type="text" id="TitoloS" name="TitoloS" placeholder="Titolo">
-        <input type="text" id="ArtistaS" name="ArtistaS" placeholder="Artista">
-        <input type="text" id="AlbumS" name="AlbumS" placeholder="Album">
-        <input type="time" id="DurataS" name="DurataS" placeholder="Durata">
-        <input type="date" id="DataS" name="DataS" placeholder="Data">
-        <input type="submit" value="Submit"> 
-    </form>
-     <!--<form action="ajax/UploadSong.php"
+     <form 
+           action="admin.php"
 	       method="post"
 	       enctype="multipart/form-data">
 
 	 	<input type="file"
-	 	       name="my_audio">
+	 	       name="my_image">
 
 	 	<input type="submit"
 	 	       name="submit" 
-	 	       value="Upload">
-	 </form>-->
+	 	       value="Carica Foto">
+	 </form>
+
+    <form action="admin.php"
+	       method="post">
+        <input type="text" id="TitoloS" name="TitoloS" placeholder="Titolo"     required>
+        <input type="text" id="ArtistaS" name="ArtistaS" placeholder="Artista"  required>
+        <input type="text" id="AlbumS" name="AlbumS" placeholder="Album"        required>
+        <input type="time" id="DurataS" name="DurataS" placeholder="Durata"     required>
+        <input type="date" id="DataS" name="DataS" placeholder="Data"           required><br>
+        <input type="submit" value="Carica"> 
+    </form>
+  
 
       <script type="text/javascript" src="script.js"></script>
     <script
