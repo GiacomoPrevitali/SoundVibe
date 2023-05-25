@@ -623,3 +623,45 @@
 .pref:active {
   background-color: #003d80;
 }
+
+
+
+
+
+
+
+
+.slider {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+  z-index: 2;
+}
+
+.slider-range {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background-color: #333;
+  outline: none;
+  border-radius: 5px;
+}
+
+.slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(141, 139, 139);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.TimerSong{
+  position: absolute;
+  left: 10px;
+ 
+  color: white;
+  font-size: 25px;
+}

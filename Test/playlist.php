@@ -9,7 +9,7 @@
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         
-    <title>WORK</title>
+    <title>Playlist</title>
 </head>
 <body onload="FPlaylist();"id="PlaylistPage" >
 <div class="sidebar">
@@ -80,7 +80,7 @@
             </div>
         </div>
       </div>
-<div id="table-container"></div>
+  <div id="table-container"></div>
     <table id="table">
         <thead>
             <tr class="TitleTable bg-primary">
@@ -94,9 +94,16 @@
             </tr>
         </thead>
       </table>
+</div>
+
+<div class="slider">
+  <input type="range" min="0" max="100" value="0" class="slider-range" id="song-slider">
+</div>
+
       <audio id="SongPlay" src="Database/Audio/" class="Song" controls hidden>
 	    </audio>
       <div class="Music">
+      <span id="timer" class="TimerSong">0:00</span>
           <img id="FotoSong" class="fotoSogn" hidden>
           <img src="./Foto/back.ico" class="logo" onclick="Skip();">
           <img id="play-pause" onclick="changeImage()" src="./Foto/Play_Icon.png" class="logo">

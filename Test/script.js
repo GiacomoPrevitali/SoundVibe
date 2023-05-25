@@ -623,3 +623,54 @@ $(document).ready(function() {
 });
 
 
+
+
+var songSlider = document.getElementById('song-slider');
+var songPlay = document.getElementById('SongPlay');
+var timerDisplay = document.getElementById('timer');
+
+// Aggiungi un event listener per il cambiamento del valore dello slider
+songSlider.addEventListener('input', function() {
+  var value = this.value;
+  // Calcola il tempo in base al valore dello slider (es. 50% del brano)
+  var duration = songPlay.duration;
+  var newPosition = (duration / 100) * value;
+  
+  // Imposta la nuova posizione del brano
+  songPlay.currentTime = newPosition;
+});
+
+// Aggiungi un event listener per l'evento "timeupdate" dell'elemento audio
+songPlay.addEventListener('timeupdate', function() {
+  // Aggiorna la posizione dello slider in base al tempo corrente del brano
+  var duration = songPlay.duration;
+  var currentTime = songPlay.currentTime;
+  var percentage = (currentTime / duration) * 100;
+
+  // Imposta il valore dello slider in base al tempo corrente del brano
+  songSlider.value = percentage;
+});
+
+
+songPlay.addEventListener('ended', function() {
+ Skip();
+});
+
+
+songPlay.addEventListener('timeupdate', function() {
+  // Aggiorna la posizione dello slider in base al tempo corrente del brano
+  var duration = songPlay.duration;
+  var currentTime = songPlay.currentTime;
+  var percentage = (currentTime / duration) * 100;
+
+  // Imposta il valore dello slider in base al tempo corrente del brano
+  songSlider.value = percentage;
+
+  // Aggiorna il timer
+  var currentMinutes = Math.floor(currentTime / 60);
+  var currentSeconds = Math.floor(currentTime % 60);
+  var formattedTime = currentMinutes + ':' + (currentSeconds < 10 ? '0' : '') + currentSeconds;
+  timerDisplay.textContent = formattedTime;
+});
+
+

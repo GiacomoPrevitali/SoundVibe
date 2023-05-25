@@ -95,9 +95,12 @@
 
      
     </div>
+    <div class="slider">
+  <input type="range" min="0" max="100" value="0" class="slider-range" id="song-slider">
+</div>
     <audio id="SongPlay" src="Database/Audio/" class="Song" controls hidden></audio>
       <div class="Music">
-     <!-- <img id="FotoSong" class="fotoSogn" hidden>-->
+      <span id="timer" class="TimerSong">0:00</span>
           <img src="./Foto/back.ico" class="logo" onclick="Skip();">
           <img id="play-pause" class="logo" onclick="changeImage()" src="./Foto/Play_Icon.png">
           <img src="./Foto/skip.ico" class="logo" onclick="Skip();">
