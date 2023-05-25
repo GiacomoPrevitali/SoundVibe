@@ -60,6 +60,7 @@
           </li>
         </ul>
       </div>
+      <img id="FotoSong" class="fotoSogn">
     </div>
 
     <div class="main-container">
@@ -96,10 +97,10 @@
     </div>
     <audio id="SongPlay" src="Database/Audio/" class="Song" controls hidden></audio>
       <div class="Music">
-      <img id="FotoSong" class="fotoSogn" hidden>
-          <img src="./Foto/back.ico" class="logo" >
+     <!-- <img id="FotoSong" class="fotoSogn" hidden>-->
+          <img src="./Foto/back.ico" class="logo" onclick="Skip();">
           <img id="play-pause" class="logo" onclick="changeImage()" src="./Foto/Play_Icon.png">
-          <img src="./Foto/skip.ico" class="logo">
+          <img src="./Foto/skip.ico" class="logo" onclick="Skip();">
       </div>
 
      

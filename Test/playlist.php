@@ -98,7 +98,7 @@
 	    </audio>
       <div class="Music">
           <img id="FotoSong" class="fotoSogn" hidden>
-          <img src="./Foto/back.ico" class="logo">
+          <img src="./Foto/back.ico" class="logo" onclick="Skip();">
           <img id="play-pause" onclick="changeImage()" src="./Foto/Play_Icon.png" class="logo">
           <img src="./Foto/skip.ico" id="Skip" onclick="Skip();" class="logo">
       </div>
