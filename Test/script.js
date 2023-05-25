@@ -132,7 +132,7 @@ function AddPlaylist(){
     },
     success: function(data){
       var i=0; 
-      alert(data.length);
+      //alert(data.length);
       if(data.length!=1){
       $.each(data, function (key, value) {
        
@@ -493,18 +493,31 @@ $(document).ready(function() {
       url: "ajax/AddPlaylist.php",      
       type: "POST",       
       dataType: "json",  
-
       data : {
       Nome: Nome,
       Cognome: Cognome,
       Id: Id,
       TitoloPlaylist: document.getElementById("TitoloPlaylist").value,
       DescrizionePlaylist: document.getElementById("DescrizionePlaylist").value,
-      ImmaginePlaylist: document.getElementById("ImmaginePlaylist").value,
+      //ImmaginePlaylist: document.getElementById("ImmaginePlaylist").value,
       },
  
       success: function(data){ 
-       console.log(data);
+        $.ajax({    
+          url: "ajax/AddPlaylist2.php",      
+          type: "POST",       
+          dataType: "json",  
+          data : {
+          Titolo: document.getElementById("TitoloPlaylist").value,
+          },
+          success: function(data){
+            document.getElementById("valorePl").value=data[0].Id;
+
+          },
+          error: function (data, xhr, ajaxOptions, thrownError) {
+            console.log(data)
+          }
+    })
       },
       error: function (data, xhr, ajaxOptions, thrownError) {
         console.log(data)

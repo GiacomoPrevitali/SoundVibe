@@ -183,7 +183,8 @@ if(isset($_POST['TitoloS'])){
         
     <div class="main-container">
     <?php
-    echo '<h3 class="Name"> Id: '. $_SESSION['IdSong'].'</h3>';?>
+     if(isset($_SESSION['IdSong'])){
+    echo '<h3 class="Name" hidden> Id: '. $_SESSION['IdSong'].'</h3>';}?>
       <div class="Upload-audio"></div>
       <form 
            action="admin.php"
